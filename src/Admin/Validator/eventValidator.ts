@@ -8,4 +8,4 @@ export const eventValidation = async (req: Request, res: Response, next: NextFun
     return res.status(400).json({ error: err.details[0].message })
   }
   next()
-}
+} 

@@ -10,7 +10,7 @@ if (isProd) {
     moduleAlias.addAliases({
         "@": path.join(__dirname, '/../dist')
     })
-} else { 
+} else {
     moduleAlias.addAliases({
         "@": path.join(__dirname, '/../src')
     })
@@ -77,7 +77,6 @@ class App {
         this.#app.set('view engine', 'handlebars')
         this.#app.use(passport.initialize())
     }
-
     private createPage(): void {
         this.#app.get('/admin-login', (req: Request, res: Response) => {
             res.render('admin-login', { layout: false })
