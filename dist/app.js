@@ -104,7 +104,7 @@ class App {
         });
         //qhov no yog hais tias thaum yus tsis muaj view ce yus ua li no
         __classPrivateFieldGet(this, _app).get('*', (req, res) => {
-            res.status(404).json('Error:404, We do not allow you');
+            res.status(404).json('404, Sorry, We do not allow you');
         });
         __classPrivateFieldSet(this, _httpServer, http_1.default.createServer(__classPrivateFieldGet(this, _app))
         // this.#app.get('*', (req: Request, res: Response) => {

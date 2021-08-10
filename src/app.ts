@@ -96,7 +96,7 @@ class App {
         })
         //qhov no yog hais tias thaum yus tsis muaj view ce yus ua li no
         this.#app.get('*', (req: Request, res: Response) => {
-            res.status(404).json('Error:404, We do not allow you')
+            res.status(404).json('404, Sorry, We do not allow you')
         })
         this.#httpServer = http.createServer(this.#app)
         // this.#app.get('*', (req: Request, res: Response) => {

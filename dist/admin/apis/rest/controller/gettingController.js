@@ -12,48 +12,48 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Event_1 = __importDefault(require("@/models/Event"));
-const eventController = {
-    addEvent: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { name, date, bookTicketButton, details } = req.body;
+const GettingAndKeep_1 = __importDefault(require("@/models/GettingAndKeep"));
+const gettingAndKeepController = {
+    addGettingAndKeep: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        const { name, date, bookTicketButtom, details } = req.body;
         try {
-            const addEvents = new Event_1.default({
-                name, date, bookTicketButton, details
+            const addGettingAndKeep = new GettingAndKeep_1.default({
+                name, date, bookTicketButtom, details
             });
-            yield addEvents.save();
-            res.status(200).json({ addEvents });
+            yield addGettingAndKeep.save();
+            res.status(200).json({ addGettingAndKeep });
         }
         catch (er) {
             return res.status(509).json({ message: er });
         }
     }),
-    getEvent: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    getGettingAndKeep: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            const getEvents = yield Event_1.default.find().sort('-createdAt');
-            res.status(200).json({ getEvents });
+            const getGettingAndKeep = yield GettingAndKeep_1.default.find().sort('-createdAt');
+            res.status(200).json({ getGettingAndKeep });
         }
         catch (e) {
             throw new Error(e);
         }
     }),
-    updateEvent: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { _id, name, date, bookTicketButton, details } = req.body;
+    updateGettingAndKeep: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        const { _id, name, date, bookTicketButtom, details } = req.body;
         try {
-            const Update = yield Event_1.default.findByIdAndUpdate(_id, {
+            const Update = yield GettingAndKeep_1.default.findByIdAndUpdate(_id, {
                 $set: {
-                    name, date, bookTicketButton, details
+                    name, date, bookTicketButtom, details
                 }
             }, { runValidators: true, new: true });
             res.status(200).json({ Update });
         }
         catch (er) {
-            throw new Error(er);
+            return res.status(409).json({ message: er });
         }
     }),
-    deleteEvent: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    deleteGetting: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
             const { id } = req.params;
-            yield Event_1.default.findByIdAndDelete(id);
+            yield GettingAndKeep_1.default.findByIdAndDelete(id);
             res.status(200).json('Deleted succeed');
         }
         catch (er) {
@@ -61,4 +61,4 @@ const eventController = {
         }
     })
 };
-exports.default = eventController;
+exports.default = gettingAndKeepController;

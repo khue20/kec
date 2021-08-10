@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
-import { signToken } from '../../../../utils/jwt'
-import User from '../../../../models/User'
-import { genHash } from '../../../../utils/bcrypt'
+import { signToken } from '@/utils/jwt'
+import User from '@/models/User'
+import { genHash } from '@/utils/bcrypt'
 const userController = {
   addUser: async (req: Request, res: Response) => {
     const { firstName, lastName, email, password } = req.body

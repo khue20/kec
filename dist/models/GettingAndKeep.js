@@ -1,16 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
-const eventSchema = new mongoose_1.Schema({
+const gettingSchema = new mongoose_1.Schema({
     name: {
         type: String,
         required: true
     },
     date: {
-        type: Date,
+        type: String,
         required: true
     },
-    bookTicketButton: {
+    bookTicketButtom: {
         type: String,
         required: true
     },
@@ -19,5 +19,5 @@ const eventSchema = new mongoose_1.Schema({
         required: true
     }
 }, { timestamps: true });
-const Event = mongoose_1.model('Event', eventSchema, 'Event');
-exports.default = Event;
+const Getting = mongoose_1.model('Getting', gettingSchema, 'Getting');
+exports.default = Getting;

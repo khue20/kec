@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { loginToken, signToken } from '../../../../utils/jwt'
+import { loginToken, signToken } from '@/utils/jwt'
 const userController = {
   login: async (req: Request, res: Response) => {
     try {

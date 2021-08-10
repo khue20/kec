@@ -1,12 +1,12 @@
 import { Request, Response } from 'express'
-import Event from '../../../../models/Event'
+import Event from '@/models/Event'
 
 const eventController = {
   addEvent: async (req: Request, res: Response) => {
-    const { name, date, bookTiketButton, details } = req.body
+    const { name, date, bookTicketButton, details } = req.body
     try {
       const addEvents = new Event({
-        name, date, bookTiketButton, details
+        name, date, bookTicketButton, details
       })
       await addEvents.save()
       res.status(200).json({ addEvents })
@@ -23,11 +23,11 @@ const eventController = {
     }
   },
   updateEvent: async (req: Request, res: Response) => {
-    const { _id, name, date, bookTiketButton, details } = req.body
+    const { _id, name, date, bookTicketButton, details } = req.body
     try {
       const Update = await Event.findByIdAndUpdate(_id, {
         $set: {
-          name, date, bookTiketButton, details
+          name, date, bookTicketButton, details
         }
       }, { runValidators: true, new: true })
       res.status(200).json({ Update })

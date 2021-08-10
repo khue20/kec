@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import InnerCircle from '../../../../models/InnerCircle'
+import InnerCircle from '@/models/InnerCircle'
 
 const innerCercleController = {
   getInnerCercle: async (req: Request, res: Response) => {

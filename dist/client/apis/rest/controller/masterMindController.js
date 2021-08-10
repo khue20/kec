@@ -13,7 +13,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Mastermind_1 = __importDefault(require("@/models/Mastermind"));
-const nodemailer_1 = __importDefault(require("../../../../plugins/nodemailer"));
+const nodemailer_1 = __importDefault(require("@/plugins/nodemailer"));
+const User_1 = __importDefault(require("@/models/User"));
 const masterMindController = {
     addMasterMind: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { firstName, lastName, email, contactNumber, businessName, reVenue, website } = req.body;
@@ -37,12 +38,18 @@ const masterMindController = {
                 reVenue: addMasterMind.reVenue,
                 website: addMasterMind.website
             };
-            nodemailer_1.default.sendMail({
-                from: 'KATALYST',
-                to: 'ncomusibsim7@gmail.com',
-                subject: `Mastermind`,
-                text: emailText(detail)
-            });
+            const mapUser = yield User_1.default.find();
+            yield new Promise((resolve) => setTimeout(() => __awaiter(void 0, void 0, void 0, function* () {
+                mapUser.map((email) => __awaiter(void 0, void 0, void 0, function* () {
+                    nodemailer_1.default.sendMail({
+                        from: 'KATALYST',
+                        to: email.email,
+                        subject: `Mastermind`,
+                        text: emailText(detail)
+                    });
+                }));
+                resolve('succeed');
+            }), 1000));
             res.status(200).json({ addMasterMind });
         }
         catch (er) {

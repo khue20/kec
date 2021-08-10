@@ -1,6 +1,7 @@
+import User from '@/models/User'
 import { Request, Response } from 'express'
-import InnerCircle from '../../../../models/InnerCircle'
-import transporter from '../../../../plugins/nodemailer'
+import InnerCircle from '@/models/InnerCircle'
+import transporter from '@/plugins/nodemailer'
 const innerCercleController = {
   insertInnerCercle: async (req: Request, res: Response) => {
     const {
@@ -36,12 +37,19 @@ const innerCercleController = {
         noOfStaff: addInnerCercle.noOfStaff,
         descriptions: addInnerCercle.descriptions
       }
-      transporter.sendMail({
-        from: 'KATALYST',
-        to: 'ncomusibsim7@gmail.com',
-        subject: `Inner Circle`,
-        text: emailText(detail)
-      })
+      const mapUser = await User.find()
+      await new Promise((resolve) => setTimeout(async () => {
+        mapUser.map(async (email: any) => {
+          transporter.sendMail({
+            from: 'KATALYST',
+            to: email.email,
+            subject: `Inner Circle`,
+            text: emailText(detail)
+          })
+        })
+        resolve('succeed')
+      }, 1000))
+
       res.status(200).json({ addInnerCercle })
     } catch (er) {
       return res.status(409).json({ message: er })

@@ -1,14 +1,14 @@
 import { Schema, model } from 'mongoose'
-const eventSchema = new Schema({
+const gettingSchema = new Schema({
   name: {
     type: String,
     required: true
   },
   date: {
-    type: Date,
+    type: String,
     required: true
   },
-  bookTicketButton: {
+  bookTicketButtom: {
     type: String,
     required: true
   },
@@ -17,5 +17,5 @@ const eventSchema = new Schema({
     required: true
   }
 }, { timestamps: true })
-const Event = model('Event', eventSchema, 'Event')
-export default Event
+const Getting = model('Getting', gettingSchema, 'Getting')
+export default Getting

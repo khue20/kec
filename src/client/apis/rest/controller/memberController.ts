@@ -1,6 +1,7 @@
 import { Request, Response } from "express"
 import Member from "@/models/Member"
 import transporter from '@/plugins/nodemailer'
+import User from "@/models/User"
 const memberController = {
   registerMember: async (req: Request, res: Response) => {
     const { firstName, lastName, email, contactNumber, businessName, reason, memberShipOption } = req.body
@@ -24,12 +25,19 @@ const memberController = {
         reason: addMember.reason,
         memberShipOption: addMember.memberShipOption
       }
-      transporter.sendMail({
-        from: 'KATALYST',
-        to: 'ncomusibsim7@gmail.com',
-        subject: `Member`,
-        text: emailText(datas)
-      })
+      const mapUser = await User.find()
+      await new Promise((resolve) => setTimeout(async () => {
+        mapUser.map(async (email: any) => {
+          transporter.sendMail({
+            from: 'KATALYST',
+            to: email.email,
+            subject: `Member`,
+            text: emailText(datas)
+          })
+        })
+        resolve('succeed')
+      }, 1000))
+
       res.status(200).json({ addMember })
     } catch (er) {
       return res.status(409).json({ message: er })
@@ -37,7 +45,7 @@ const memberController = {
   }
 }
 const emailText = (datas: any) => `
-Mastermin Group is currently FULL,
+ສະໝັກເຂົ້າເປັນສະມາຊິກ KEC ,
 Details:
 FirstName: ${datas.firstName},
 Last Name: ${datas.lastName},

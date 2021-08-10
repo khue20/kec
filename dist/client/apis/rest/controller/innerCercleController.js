@@ -12,8 +12,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const InnerCircle_1 = __importDefault(require("../../../../models/InnerCircle"));
-const nodemailer_1 = __importDefault(require("../../../../plugins/nodemailer"));
+const User_1 = __importDefault(require("@/models/User"));
+const InnerCircle_1 = __importDefault(require("@/models/InnerCircle"));
+const nodemailer_1 = __importDefault(require("@/plugins/nodemailer"));
 const innerCercleController = {
     insertInnerCercle: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { firstName, lastName, email, contactNumber, businessName, website, turNover, noOfStaff, descriptions } = req.body;
@@ -40,12 +41,18 @@ const innerCercleController = {
                 noOfStaff: addInnerCercle.noOfStaff,
                 descriptions: addInnerCercle.descriptions
             };
-            nodemailer_1.default.sendMail({
-                from: 'KATALYST',
-                to: 'ncomusibsim7@gmail.com',
-                subject: `Inner Circle`,
-                text: emailText(detail)
-            });
+            const mapUser = yield User_1.default.find();
+            yield new Promise((resolve) => setTimeout(() => __awaiter(void 0, void 0, void 0, function* () {
+                mapUser.map((email) => __awaiter(void 0, void 0, void 0, function* () {
+                    nodemailer_1.default.sendMail({
+                        from: 'KATALYST',
+                        to: email.email,
+                        subject: `Inner Circle`,
+                        text: emailText(detail)
+                    });
+                }));
+                resolve('succeed');
+            }), 1000));
             res.status(200).json({ addInnerCercle });
         }
         catch (er) {

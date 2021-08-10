@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import Mastermind from '@/models/Mastermind'
-import transporter from '../../../../plugins/nodemailer'
+import transporter from '@/plugins/nodemailer'
+import User from '@/models/User'
 const masterMindController = {
   addMasterMind: async (req: Request, res: Response) => {
     const {
@@ -32,12 +33,19 @@ const masterMindController = {
         reVenue: addMasterMind.reVenue,
         website: addMasterMind.website
       }
-      transporter.sendMail({
-        from: 'KATALYST',
-        to: 'ncomusibsim7@gmail.com',
-        subject: `Mastermind`,
-        text: emailText(detail)
-      })
+      const mapUser = await User.find()
+      await new Promise((resolve) => setTimeout(async () => {
+        mapUser.map(async (email: any) => {
+          transporter.sendMail({
+            from: 'KATALYST',
+            to: email.email,
+            subject: `Mastermind`,
+            text: emailText(detail)
+          })
+        })
+        resolve('succeed')
+      }, 1000))
+
       res.status(200).json({ addMasterMind })
     } catch (er) {
       return res.status(409).json({ message: er })

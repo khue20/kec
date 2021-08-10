@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Member_1 = __importDefault(require("@/models/Member"));
 const nodemailer_1 = __importDefault(require("@/plugins/nodemailer"));
+const User_1 = __importDefault(require("@/models/User"));
 const memberController = {
     registerMember: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { firstName, lastName, email, contactNumber, businessName, reason, memberShipOption } = req.body;
@@ -37,12 +38,18 @@ const memberController = {
                 reason: addMember.reason,
                 memberShipOption: addMember.memberShipOption
             };
-            nodemailer_1.default.sendMail({
-                from: 'KATALYST',
-                to: 'ncomusibsim7@gmail.com',
-                subject: `Member`,
-                text: emailText(datas)
-            });
+            const mapUser = yield User_1.default.find();
+            yield new Promise((resolve) => setTimeout(() => __awaiter(void 0, void 0, void 0, function* () {
+                mapUser.map((email) => __awaiter(void 0, void 0, void 0, function* () {
+                    nodemailer_1.default.sendMail({
+                        from: 'KATALYST',
+                        to: email.email,
+                        subject: `Member`,
+                        text: emailText(datas)
+                    });
+                }));
+                resolve('succeed');
+            }), 1000));
             res.status(200).json({ addMember });
         }
         catch (er) {
@@ -51,7 +58,7 @@ const memberController = {
     })
 };
 const emailText = (datas) => `
-Mastermin Group is currently FULL,
+ສະໝັກເຂົ້າເປັນສະມາຊິກ KEC ,
 Details:
 FirstName: ${datas.firstName},
 Last Name: ${datas.lastName},
