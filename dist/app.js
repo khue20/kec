@@ -102,8 +102,9 @@ class App {
             const route = './admin/apis/rest/routes/' + file;
             __classPrivateFieldGet(this, _app).use('/admin/api', require(route).default);
         });
+        //qhov no yog hais tias thaum yus tsis muaj view ce yus ua li no
         __classPrivateFieldGet(this, _app).get('*', (req, res) => {
-            res.render('main', { layout: false });
+            res.status(404).json('404');
         });
         __classPrivateFieldSet(this, _httpServer, http_1.default.createServer(__classPrivateFieldGet(this, _app))
         // this.#app.get('*', (req: Request, res: Response) => {

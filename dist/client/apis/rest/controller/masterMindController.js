@@ -12,41 +12,38 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const InnerCircle_1 = __importDefault(require("../../../../models/InnerCircle"));
+const Mastermind_1 = __importDefault(require("@/models/Mastermind"));
 const nodemailer_1 = __importDefault(require("../../../../plugins/nodemailer"));
-const innerCercleController = {
-    insertInnerCercle: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { firstName, lastName, email, contactNumber, businessName, website, turNover, noOfStaff, descriptions } = req.body;
+const masterMindController = {
+    addMasterMind: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        const { firstName, lastName, email, contactNumber, businessName, reVenue, website } = req.body;
         try {
-            const addInnerCercle = new InnerCircle_1.default({
+            const addMasterMind = new Mastermind_1.default({
                 firstName,
                 lastName,
                 email,
                 contactNumber,
                 businessName,
-                website,
-                turNover,
-                noOfStaff,
-                descriptions
+                reVenue,
+                website
             });
-            yield addInnerCercle.save();
+            yield addMasterMind.save();
             const detail = {
-                lastName: addInnerCercle.lastName,
-                email: addInnerCercle.email,
-                contactNumber: addInnerCercle.contactNumber,
-                businessName: addInnerCercle.businessName,
-                website: addInnerCercle.website,
-                turNover: addInnerCercle.turNover,
-                noOfStaff: addInnerCercle.noOfStaff,
-                descriptions: addInnerCercle.descriptions
+                firstName: addMasterMind.firstName,
+                lastName: addMasterMind.lastName,
+                email: addMasterMind.email,
+                contactNumber: addMasterMind.contactNumber,
+                businessName: addMasterMind.businessName,
+                reVenue: addMasterMind.reVenue,
+                website: addMasterMind.website
             };
             nodemailer_1.default.sendMail({
                 from: 'KATALYST',
                 to: 'ncomusibsim7@gmail.com',
-                subject: `Inner Circle`,
+                subject: `Mastermind`,
                 text: emailText(detail)
             });
-            res.status(200).json({ addInnerCercle });
+            res.status(200).json({ addMasterMind });
         }
         catch (er) {
             return res.status(409).json({ message: er });
@@ -54,16 +51,14 @@ const innerCercleController = {
     })
 };
 const emailText = (detail) => `
-Join the Inner Cirlce Waiting List,
+Mastermin Group is currently FULL,
 Details:
 FirstName: ${detail.firstName},
-LastName: ${detail.lastName},
-E-mail:${detail.email},
+Last Name: ${detail.lastName},
+E-mail: ${detail.email},
 ContactNumber: ${detail.contactNumber},
 BusinessName: ${detail.businessName},
 Website: ${detail.website},
-TurNover: ${detail.turNover},
-No. of Staff: ${detail.noOfStaff},
-Descriptions: ${detail.descriptions}
+ReVenue: ${detail.reVenue}
 `;
-exports.default = innerCercleController;
+exports.default = masterMindController;

@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose"
-const innerCircleSchema = new Schema({
+
+const memberSchema = new Schema({
   firstName: {
     type: String,
     required: true
@@ -20,23 +21,15 @@ const innerCircleSchema = new Schema({
     type: String,
     required: true
   },
-  website: {
-    type: String
-  },
-  turNover: {
+  reason: {
     type: String,
     required: true
   },
-  noOfStaff: {
-    type: String,
-    required: true
-  },
-  descriptions: {
+  memberShipOption: {
     type: String,
     required: true
   }
 }, { timestamps: true })
+const Member = model('Member', memberSchema, 'Member')
 
-const InnerCircle = model('InnerCircle', innerCircleSchema, 'InnerCircle')
-
-export default InnerCircle
+export default Member

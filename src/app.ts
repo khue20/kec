@@ -94,9 +94,9 @@ class App {
             const route = './admin/apis/rest/routes/' + file
             this.#app.use('/admin/api', require(route).default)
         })
-
+        //qhov no yog hais tias thaum yus tsis muaj view ce yus ua li no
         this.#app.get('*', (req: Request, res: Response) => {
-            res.render('main', { layout: false })
+            res.status(404).json('404')
         })
         this.#httpServer = http.createServer(this.#app)
         // this.#app.get('*', (req: Request, res: Response) => {

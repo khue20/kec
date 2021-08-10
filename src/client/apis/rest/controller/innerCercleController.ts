@@ -51,16 +51,14 @@ const innerCercleController = {
 const emailText = (detail: any) => `
 Join the Inner Cirlce Waiting List,
 Details:
-firstName: ${detail.firstName},
-lastName: ${detail.lastName},
-email:${detail.email},
-contactNumber: ${detail.contactNumber},
-businessName: ${detail.businessName},
-website: ${detail.website},
-turNover: ${detail.turNover},
+FirstName: ${detail.firstName},
+LastName: ${detail.lastName},
+E-mail:${detail.email},
+ContactNumber: ${detail.contactNumber},
+BusinessName: ${detail.businessName},
+Website: ${detail.website},
+TurNover: ${detail.turNover},
 No. of Staff: ${detail.noOfStaff},
-descriptions: ${detail.descriptions}
+Descriptions: ${detail.descriptions}
 `
-
-
 export default innerCercleController

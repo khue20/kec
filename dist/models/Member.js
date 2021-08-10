@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
-const innerCircleSchema = new mongoose_1.Schema({
+const memberSchema = new mongoose_1.Schema({
     firstName: {
         type: String,
         required: true
@@ -22,21 +22,14 @@ const innerCircleSchema = new mongoose_1.Schema({
         type: String,
         required: true
     },
-    website: {
-        type: String
-    },
-    turNover: {
+    reason: {
         type: String,
         required: true
     },
-    noOfStaff: {
-        type: String,
-        required: true
-    },
-    descriptions: {
+    memberShipOption: {
         type: String,
         required: true
     }
 }, { timestamps: true });
-const InnerCircle = mongoose_1.model('InnerCircle', innerCircleSchema, 'InnerCircle');
-exports.default = InnerCircle;
+const Member = mongoose_1.model('Member', memberSchema, 'Member');
+exports.default = Member;
