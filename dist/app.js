@@ -41,6 +41,8 @@ const http_1 = __importDefault(require("http"));
 const fs_1 = __importDefault(require("fs"));
 const passport_1 = __importDefault(require("./plugins/passport"));
 const mongoose_1 = __importDefault(require("./plugins/mongoose"));
+const authCleartmp_1 = require("@/service/authCleartmp");
+authCleartmp_1.authClearTmp.start();
 class App {
     //  #corsOptions!: any
     constructor() {
