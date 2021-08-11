@@ -5,5 +5,5 @@ import uploadImage from '@/service/formidable'
 const router: Router = Router()
 
 router.route('/upload-image')
-  .post( uploadImage)
+  .post(isAdmin, uploadImage)
 export default router

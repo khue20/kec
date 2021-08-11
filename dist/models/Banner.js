@@ -25,7 +25,8 @@ const bannerSchema = new mongoose_1.Schema({
     },
     status: {
         type: Boolean,
-        required: true
+        required: true,
+        default: true
     }
 }, { timestamps: true });
 const Banner = mongoose_1.model('Banner', bannerSchema, 'Banner');

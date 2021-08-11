@@ -4,10 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const passport_1 = require("passport");
-const isAdmin = passport_1.authenticate('isAdmin', { session: false });
-const formidable_1 = __importDefault(require("@/service/formidable"));
+const bannerController_1 = __importDefault(require("../controller/bannerController"));
 const router = express_1.Router();
-router.route('/upload-image')
-    .post(isAdmin, formidable_1.default);
+router.route('/get-banner/:bannertype')
+    .get(bannerController_1.default.getBanner);
 exports.default = router;

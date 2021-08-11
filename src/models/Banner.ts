@@ -23,7 +23,8 @@ const bannerSchema = new Schema({
   },
   status: {
     type: Boolean,
-    required: true
+    required: true,
+    default: true
   }
 }, { timestamps: true })
 
