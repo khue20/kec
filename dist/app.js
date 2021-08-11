@@ -80,7 +80,7 @@ class App {
         __classPrivateFieldGet(this, _app).use(__classPrivateFieldGet(this, _jsonParser));
         __classPrivateFieldGet(this, _app).use(__classPrivateFieldGet(this, _urlencodedParser));
         //  this.#app.use(express.static('tmp'))
-        // this.#app.use(express.static('public'))
+        __classPrivateFieldGet(this, _app).use(express_1.default.static('public'));
         __classPrivateFieldGet(this, _app).use(express_1.default.static('public/main'));
         __classPrivateFieldGet(this, _app).engine('handlebars', __classPrivateFieldGet(this, _expressHandlebars).call(this));
         __classPrivateFieldGet(this, _app).set('view engine', 'handlebars');

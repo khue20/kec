@@ -10,17 +10,17 @@ router.route('/admin-login')
   .post(adminSignIn, userController.login)
 
 router.route('/add-user')
-  .post(userController.addUser)
+  .post(isAdmin, userController.addUser)
 
 router.route('/get-user')
-  .get(userController.getUser)
+  .get(isAdmin, userController.getUser)
 
 router.route('/update-user')
-  .put(userController.updateUser)
+  .put(isAdmin, userController.updateUser)
 
 router.route('/bann-user/:id')
-  .put(userController.isBan)
+  .put(isAdmin, userController.isBan)
 
 router.route('/delete-user/:id')
-  .delete(userController.deleteUser)
+  .delete(isAdmin, userController.deleteUser)
 export default router

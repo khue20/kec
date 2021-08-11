@@ -28,15 +28,15 @@ const masterMindController = {
                 reVenue,
                 website
             });
-            yield addMasterMind.save();
+            const i = yield addMasterMind.save();
             const detail = {
-                firstName: addMasterMind.firstName,
-                lastName: addMasterMind.lastName,
-                email: addMasterMind.email,
-                contactNumber: addMasterMind.contactNumber,
-                businessName: addMasterMind.businessName,
-                reVenue: addMasterMind.reVenue,
-                website: addMasterMind.website
+                firstName: i.firstName,
+                lastName: i.lastName,
+                email: i.email,
+                contactNumber: i.contactNumber,
+                businessName: i.businessName,
+                reVenue: i.reVenue,
+                website: i.website
             };
             const mapUser = yield User_1.default.find();
             yield new Promise((resolve) => setTimeout(() => __awaiter(void 0, void 0, void 0, function* () {

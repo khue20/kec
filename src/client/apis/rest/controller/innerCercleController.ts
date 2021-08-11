@@ -15,7 +15,7 @@ const innerCercleController = {
       noOfStaff,
       descriptions } = req.body
     try {
-      const addInnerCercle = new InnerCircle({
+      const addInnerCercle: any = new InnerCircle({
         firstName,
         lastName,
         email,
@@ -27,7 +27,8 @@ const innerCercleController = {
         descriptions
       })
       await addInnerCercle.save()
-      const detail = {
+      const details = {
+        firstName: addInnerCercle.firstName,
         lastName: addInnerCercle.lastName,
         email: addInnerCercle.email,
         contactNumber: addInnerCercle.contactNumber,
@@ -44,7 +45,7 @@ const innerCercleController = {
             from: 'KATALYST',
             to: email.email,
             subject: `Inner Circle`,
-            text: emailText(detail)
+            text: emailText(details)
           })
         })
         resolve('succeed')
@@ -56,17 +57,17 @@ const innerCercleController = {
     }
   }
 }
-const emailText = (detail: any) => `
+const emailText = (details: any) => `
 Join the Inner Cirlce Waiting List,
 Details:
-FirstName: ${detail.firstName},
-LastName: ${detail.lastName},
-E-mail:${detail.email},
-ContactNumber: ${detail.contactNumber},
-BusinessName: ${detail.businessName},
-Website: ${detail.website},
-TurNover: ${detail.turNover},
-No. of Staff: ${detail.noOfStaff},
-Descriptions: ${detail.descriptions}
+FirstName: ${details.firstName},
+LastName: ${details.lastName},
+E-mail:${details.email},
+ContactNumber: ${details.contactNumber},
+BusinessName: ${details.businessName},
+Website: ${details.website},
+TurNover: ${details.turNover},
+No. of Staff: ${details.noOfStaff},
+Descriptions: ${details.descriptions}
 `
 export default innerCercleController

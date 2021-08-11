@@ -55,7 +55,6 @@ class App {
         this.#jsonParser = bodyParser.json({ limit: '50mb' })
         this.#urlencodedParser = bodyParser.urlencoded({ limit: '50mb', extended: false })
 
-
         this.#dotenv = dotenv
         this.#port = App.PORT
         this.#expressHandlebars = expressHandlebars
@@ -71,7 +70,7 @@ class App {
         this.#app.use(this.#jsonParser)
         this.#app.use(this.#urlencodedParser)
         //  this.#app.use(express.static('tmp'))
-        // this.#app.use(express.static('public'))
+        this.#app.use(express.static('public'))
         this.#app.use(express.static('public/main'))
         this.#app.engine('handlebars', this.#expressHandlebars())
         this.#app.set('view engine', 'handlebars')

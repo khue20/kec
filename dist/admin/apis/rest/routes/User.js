@@ -12,13 +12,13 @@ const router = express_1.Router();
 router.route('/admin-login')
     .post(auth_1.adminSignIn, userController_1.default.login);
 router.route('/add-user')
-    .post(userController_1.default.addUser);
+    .post(isAdmin, userController_1.default.addUser);
 router.route('/get-user')
-    .get(userController_1.default.getUser);
+    .get(isAdmin, userController_1.default.getUser);
 router.route('/update-user')
-    .put(userController_1.default.updateUser);
+    .put(isAdmin, userController_1.default.updateUser);
 router.route('/bann-user/:id')
-    .put(userController_1.default.isBan);
+    .put(isAdmin, userController_1.default.isBan);
 router.route('/delete-user/:id')
-    .delete(userController_1.default.deleteUser);
+    .delete(isAdmin, userController_1.default.deleteUser);
 exports.default = router;

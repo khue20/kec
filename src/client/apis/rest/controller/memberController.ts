@@ -6,7 +6,7 @@ const memberController = {
   registerMember: async (req: Request, res: Response) => {
     const { firstName, lastName, email, contactNumber, businessName, reason, memberShipOption } = req.body
     try {
-      const addMember = new Member({
+      const addMember: any = new Member({
         firstName,
         lastName,
         email,

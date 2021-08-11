@@ -23,15 +23,15 @@ const masterMindController = {
         reVenue,
         website
       })
-      await addMasterMind.save()
+      const i: any = await addMasterMind.save()
       const detail = {
-        firstName: addMasterMind.firstName,
-        lastName: addMasterMind.lastName,
-        email: addMasterMind.email,
-        contactNumber: addMasterMind.contactNumber,
-        businessName: addMasterMind.businessName,
-        reVenue: addMasterMind.reVenue,
-        website: addMasterMind.website
+        firstName: i.firstName,
+        lastName: i.lastName,
+        email: i.email,
+        contactNumber: i.contactNumber,
+        businessName: i.businessName,
+        reVenue: i.reVenue,
+        website: i.website
       }
       const mapUser = await User.find()
       await new Promise((resolve) => setTimeout(async () => {
