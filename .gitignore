@@ -1,7 +1,7 @@
 node_modules
 tmp
 .env*
-
+public/images
 logs
 *.log
 npm-debug.log*

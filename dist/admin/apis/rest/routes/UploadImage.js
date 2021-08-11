@@ -9,5 +9,5 @@ const isAdmin = passport_1.authenticate('isAdmin', { session: false });
 const formidable_1 = __importDefault(require("@/service/formidable"));
 const router = express_1.Router();
 router.route('/upload-image')
-    .post(isAdmin, formidable_1.default);
+    .post(formidable_1.default);
 exports.default = router;

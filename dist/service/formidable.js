@@ -32,6 +32,8 @@ const uploadImage = (req, res) => {
             const fileName = uuid_1.v4() + '.' + fileType;
             // tslint:disable-next-line:prefer-switch
             if (fileType === 'jpg' || fileType === 'png' || fileType === 'jpeg') {
+                if (!fs_1.default.existsSync('public'))
+                    fs_1.default.mkdirSync('public');
                 if (!fs_1.default.existsSync('tmp'))
                     fs_1.default.mkdirSync('tmp');
                 if (!fs_1.default.existsSync('public/images'))
