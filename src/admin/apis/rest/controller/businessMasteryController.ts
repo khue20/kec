@@ -37,6 +37,15 @@ const bannercontroller = {
     } catch (er) {
       throw new Error(er)
     }
+  },
+  editBusiness: async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params
+      const getEdit = await BusinessMastery.findById(id)
+      res.status(200).json({ getEdit })
+    } catch (er) {
+      throw new Error(er)
+    }
   }
 }
 export default bannercontroller

@@ -43,6 +43,15 @@ const eventController = {
     } catch (er) {
       throw new Error(er)
     }
+  },
+  editEvent: async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params
+      const getEdit = await Event.findById(id)
+      res.status(200).json({ getEdit })
+    } catch (er) {
+      throw new Error(er)
+    }
   }
 }
 export default eventController

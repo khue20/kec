@@ -16,4 +16,7 @@ router.route('/get-banner')
 router.route('/delete-banner/:id')
   .delete(isAdmin, bannercontroller.deleteBanner)
 
+  router.route('/edit-banner/:id')
+  .get(isAdmin, bannercontroller.editBanner)
+
 export default router

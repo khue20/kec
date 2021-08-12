@@ -60,5 +60,15 @@ const bannercontroller = {
             return res.status(409).json({ message: er });
         }
     }),
+    editBanner: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        try {
+            const { id } = req.params;
+            const getEdit = yield Banner_1.default.findById(id);
+            res.status(200).json({ getEdit });
+        }
+        catch (er) {
+            return res.status(409).json({ message: er });
+        }
+    }),
 };
 exports.default = bannercontroller;

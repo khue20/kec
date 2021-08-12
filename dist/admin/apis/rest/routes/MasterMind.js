@@ -14,4 +14,6 @@ router.route('/update-mastermind')
     .put(isAdmin, masterMindController_1.default.updateMastermind);
 router.route('/delete-mastermind/:id')
     .delete(isAdmin, masterMindController_1.default.deleteMaster);
+router.route('/edit-mastermind/:id')
+    .get(isAdmin, masterMindController_1.default.editMaster);
 exports.default = router;

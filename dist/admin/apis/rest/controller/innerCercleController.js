@@ -80,6 +80,16 @@ const innerCercleController = {
         catch (e) {
             throw new Error(e);
         }
+    }),
+    editInner: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        try {
+            const { id } = req.params;
+            const getEdit = yield InnerCircle_1.default.findById(id);
+            res.status(200).json({ getEdit });
+        }
+        catch (e) {
+            throw new Error(e);
+        }
     })
 };
 exports.default = innerCercleController;

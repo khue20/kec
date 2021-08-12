@@ -14,4 +14,6 @@ router.route('/update-inner')
     .put(isAdmin, innerCercleController_1.default.updateInner);
 router.route('/delete-inner/:id')
     .delete(isAdmin, innerCercleController_1.default.delete);
+router.route('/edit-inner/:id')
+    .get(isAdmin, innerCercleController_1.default.editInner);
 exports.default = router;

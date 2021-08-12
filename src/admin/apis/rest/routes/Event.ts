@@ -15,4 +15,7 @@ router.route('/update-event')
 
 router.route('/delete-event/:id')
   .delete(isAdmin, eventController.deleteEvent)
+  router.route('/edit-event/:id')
+  .get(isAdmin, eventController.editEvent)
+   
 export default router

@@ -13,4 +13,7 @@ router.route('/update-mastermind')
 router.route('/delete-mastermind/:id')
   .delete(isAdmin, masterMindController.deleteMaster)
 
+  router.route('/edit-mastermind/:id')
+  .get(isAdmin, masterMindController.editMaster)
+
 export default router

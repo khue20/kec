@@ -5,6 +5,8 @@ const bannerTypecontroller = {
   addBannertype: async (req: Request, res: Response) => {
     const { name } = req.params
     try {
+      const isCheck = await BannerType.findOne({ name })
+      if (isCheck) return res.status(409).json({ message: 'This banner type already added' })
       const addBannertypes = new BannerType({
         name
       })
@@ -25,6 +27,8 @@ const bannerTypecontroller = {
   updateBannerType: async (req: Request, res: Response) => {
     try {
       const { _id, name } = req.body
+      const isCheck = await BannerType.findOne({ name })
+      if (isCheck) return res.status(409).json({ message: 'This banner type already added' })
       await BannerType.findByIdAndUpdate(_id, {
         $set: {
           name
@@ -40,6 +44,15 @@ const bannerTypecontroller = {
       const { id } = req.params
       await BannerType.findByIdAndDelete(id)
       res.status(200).json('Deleted succeed')
+    } catch (er) {
+      throw new Error(er)
+    }
+  },
+  editBannerType: async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params
+      const getEdit = await BannerType.findById(id)
+      res.status(200).json({ getEdit })
     } catch (er) {
       throw new Error(er)
     }

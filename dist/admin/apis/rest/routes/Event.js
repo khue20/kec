@@ -16,4 +16,6 @@ router.route('/update-event')
     .put(isAdmin, eventControler_1.default.updateEvent);
 router.route('/delete-event/:id')
     .delete(isAdmin, eventControler_1.default.deleteEvent);
+router.route('/edit-event/:id')
+    .get(isAdmin, eventControler_1.default.editEvent);
 exports.default = router;

@@ -43,5 +43,14 @@ const bannercontroller = {
       return res.status(409).json({ message: er })
     }
   },
+  editBanner: async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params
+      const getEdit = await Banner.findById(id)
+      res.status(200).json({ getEdit })
+    } catch (er) {
+      return res.status(409).json({ message: er })
+    }
+  },
 }
 export default bannercontroller

@@ -12,5 +12,7 @@ router.route('/update-member')
 
 router.route('/delete-member/:id')
   .delete(isAdmin, memberController.deleteMember)
+  router.route('/edit-member/:id')
+  .get(isAdmin, memberController.editMember)
 
 export default router

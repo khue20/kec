@@ -13,4 +13,6 @@ router.route('/update-inner')
 router.route('/delete-inner/:id')
   .delete(isAdmin, innerCercleController.delete)
 
+router.route('/edit-inner/:id')
+.get(isAdmin, innerCercleController.editInner)
 export default router

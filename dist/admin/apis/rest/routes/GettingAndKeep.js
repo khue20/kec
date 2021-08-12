@@ -16,4 +16,6 @@ router.route('/update-getting')
     .put(isAdmin, gettingController_1.default.updateGettingAndKeep);
 router.route('/delete-getting/:id')
     .delete(isAdmin, gettingController_1.default.deleteGetting);
+router.route('/edit-getting/:id')
+    .get(isAdmin, gettingController_1.default.editGetting);
 exports.default = router;

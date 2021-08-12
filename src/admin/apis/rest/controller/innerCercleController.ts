@@ -75,9 +75,18 @@ const innerCercleController = {
     } catch (e) {
       throw new Error(e)
     }
-  } 
+  },
+  editInner: async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params
+      const getEdit = await InnerCircle.findById(id)
+      res.status(200).json({ getEdit })
+    } catch (e) {
+      throw new Error(e)
+    }
+  }
 
-} 
+}
 
 
 

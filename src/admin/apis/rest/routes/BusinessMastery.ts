@@ -13,4 +13,7 @@ router.route('/get-business')
 router.route('/delete-business/:id')
   .delete(isAdmin, businessMasteryController.deleteBusinessMastery)
 
+  router.route('/edit-business/:id')
+  .get(isAdmin, businessMasteryController.editBusiness)
+
 export default router

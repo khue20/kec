@@ -77,6 +77,16 @@ const masterMindController = {
         catch (er) {
             throw new Error(er);
         }
+    }),
+    editMaster: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        try {
+            const { id } = req.params;
+            const getEdit = yield Mastermind_1.default.findById(id);
+            res.status(200).json({ getEdit });
+        }
+        catch (er) {
+            throw new Error(er);
+        }
     })
 };
 exports.default = masterMindController;

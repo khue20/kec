@@ -65,9 +65,18 @@ const masterMindController = {
   deleteMaster: async (req: Request, res: Response) => {
     try {
       const { id } = req.params
-      
+
       await Mastermind.findByIdAndDelete(id)
       res.status(200).json('Deleted succeed')
+    } catch (er) {
+      throw new Error(er)
+    }
+  },
+  editMaster: async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params
+      const getEdit = await Mastermind.findById(id)
+      res.status(200).json({ getEdit })
     } catch (er) {
       throw new Error(er)
     }

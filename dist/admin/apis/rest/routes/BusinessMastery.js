@@ -14,4 +14,6 @@ router.route('/get-business')
     .get(isAdmin, businessMasteryController_1.default.getBusinessMastery);
 router.route('/delete-business/:id')
     .delete(isAdmin, businessMasteryController_1.default.deleteBusinessMastery);
+router.route('/edit-business/:id')
+    .get(isAdmin, businessMasteryController_1.default.editBusiness);
 exports.default = router;

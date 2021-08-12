@@ -14,4 +14,6 @@ router.route('/update-member')
     .put(isAdmin, memberController_1.default.updateMember);
 router.route('/delete-member/:id')
     .delete(isAdmin, memberController_1.default.deleteMember);
+router.route('/edit-member/:id')
+    .get(isAdmin, memberController_1.default.editMember);
 exports.default = router;

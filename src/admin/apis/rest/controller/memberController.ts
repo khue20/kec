@@ -71,6 +71,15 @@ const memberController = {
     } catch (er) {
       throw new Error(er)
     }
+  },
+  editMember: async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params
+      const getEdit = await Member.findById(id)
+      res.status(200).json({ getEdit })
+    } catch (er) {
+      throw new Error(er)
+    }
   }
 }
 export default memberController

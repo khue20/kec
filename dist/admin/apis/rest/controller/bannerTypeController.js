@@ -17,6 +17,9 @@ const bannerTypecontroller = {
     addBannertype: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { name } = req.params;
         try {
+            const isCheck = yield BannerType_1.default.findOne({ name });
+            if (isCheck)
+                return res.status(409).json({ message: 'This banner type already added' });
             const addBannertypes = new BannerType_1.default({
                 name
             });
@@ -39,6 +42,9 @@ const bannerTypecontroller = {
     updateBannerType: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
             const { _id, name } = req.body;
+            const isCheck = yield BannerType_1.default.findOne({ name });
+            if (isCheck)
+                return res.status(409).json({ message: 'This banner type already added' });
             yield BannerType_1.default.findByIdAndUpdate(_id, {
                 $set: {
                     name
@@ -55,6 +61,16 @@ const bannerTypecontroller = {
             const { id } = req.params;
             yield BannerType_1.default.findByIdAndDelete(id);
             res.status(200).json('Deleted succeed');
+        }
+        catch (er) {
+            throw new Error(er);
+        }
+    }),
+    editBannerType: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        try {
+            const { id } = req.params;
+            const getEdit = yield BannerType_1.default.findById(id);
+            res.status(200).json({ getEdit });
         }
         catch (er) {
             throw new Error(er);

@@ -16,4 +16,6 @@ router.route('/get-bannertype')
     .get(isAdmin, bannerTypeController_1.default.getBannerType);
 router.route('/delete-bannertype/:id')
     .delete(isAdmin, bannerTypeController_1.default.deleteBannerType);
+router.route('/edit-bannertype/:id')
+    .get(isAdmin, bannerTypeController_1.default.editBannerType);
 exports.default = router;

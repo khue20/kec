@@ -15,4 +15,8 @@ router.route('/update-getting')
 
 router.route('/delete-getting/:id')
   .delete(isAdmin, gettingAndKeepController.deleteGetting)
+
+  router.route('/edit-getting/:id')
+  .get(isAdmin, gettingAndKeepController.editGetting)
+
 export default router
