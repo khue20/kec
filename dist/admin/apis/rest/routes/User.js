@@ -21,4 +21,6 @@ router.route('/bann-user/:id')
     .put(isAdmin, userController_1.default.isBan);
 router.route('/delete-user/:id')
     .delete(isAdmin, userController_1.default.deleteUser);
+router.route('/get-edit/:id')
+    .get(isAdmin, userController_1.default.editUser);
 exports.default = router;

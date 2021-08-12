@@ -119,6 +119,16 @@ const userController = {
         catch (er) {
             throw new Error(er);
         }
+    }),
+    editUser: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        const { id } = req.params;
+        try {
+            const getEdit = yield User_1.default.findById(id);
+            res.status(200).json({ getEdit });
+        }
+        catch (er) {
+            throw new Error(er);
+        }
     })
 };
 exports.default = userController;

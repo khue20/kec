@@ -23,4 +23,6 @@ router.route('/bann-user/:id')
 
 router.route('/delete-user/:id')
   .delete(isAdmin, userController.deleteUser)
+router.route('/get-edit/:id')
+  .get(isAdmin, userController.editUser)
 export default router
