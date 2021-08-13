@@ -28,7 +28,8 @@ const formSchema = new Schema({
     ownBusiness: {
         type: Boolean,
         required: true
-    }
+    },
+    package: String
 }, {timestamps: true})
 
 const Form = model('Form', formSchema, 'Form')

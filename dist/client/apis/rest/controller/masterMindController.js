@@ -58,7 +58,7 @@ const masterMindController = {
     })
 };
 const emailText = (detail) => `
-Mastermin Group is currently FULL,
+Mastermind Group is currently FULL,
 Details:
 FirstName: ${detail.firstName},
 Last Name: ${detail.lastName},

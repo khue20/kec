@@ -11,7 +11,8 @@ const FormController = {
             mobile,
             facebookName,
             email,
-            ownBusiness
+            ownBusiness,
+            packageChosen 
         } = req.body
         try {
 
@@ -22,7 +23,8 @@ const FormController = {
                 mobile,
                 facebookName,
                 email,
-                ownBusiness
+                ownBusiness,
+                package: packageChosen
             })
 
             await form.save()

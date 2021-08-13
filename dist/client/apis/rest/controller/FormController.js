@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Form_1 = __importDefault(require("@/models/Form"));
 const FormController = {
     addForm: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { formCode, fullName, gender, mobile, facebookName, email, ownBusiness } = req.body;
+        const { formCode, fullName, gender, mobile, facebookName, email, ownBusiness, packageChosen } = req.body;
         try {
             const form = new Form_1.default({
                 formCode,
@@ -24,7 +24,8 @@ const FormController = {
                 mobile,
                 facebookName,
                 email,
-                ownBusiness
+                ownBusiness,
+                package: packageChosen
             });
             yield form.save();
             res.status(201).json({ form });

@@ -29,7 +29,8 @@ const formSchema = new mongoose_1.Schema({
     ownBusiness: {
         type: Boolean,
         required: true
-    }
+    },
+    package: String
 }, { timestamps: true });
 const Form = mongoose_1.model('Form', formSchema, 'Form');
 exports.default = Form;

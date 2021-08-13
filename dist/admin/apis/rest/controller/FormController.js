@@ -46,7 +46,7 @@ const FormController = {
                 email,
                 ownBusiness
             }, { runValidators: true, new: true });
-            res.status(201).json({ form });
+            res.status(200).json({ form });
         }
         catch (e) {
             res.send(e);
