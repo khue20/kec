@@ -3,7 +3,6 @@ import Event from '@/models/Event'
 import GettingAndKeep from '@/models/GettingAndKeep'
 import moment from 'moment'
 const eventAndGettingController = {
-
   getEvent: async (req: Request, res: Response) => {
     try {
       const getEvents = await Event.find().sort('-createdAt')

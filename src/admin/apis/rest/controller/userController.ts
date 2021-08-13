@@ -98,11 +98,10 @@ const userController = {
     }
   },
   editUser: async (req: Request, res: Response) => {
-    const { id }=req.params
+    const { id } = req.params
     try {
       const getEdit = await User.findById(id)
       res.status(200).json({getEdit})
-
     } catch (er) {
       throw new Error(er)
     }
