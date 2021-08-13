@@ -44,13 +44,14 @@ const innerCercleController = {
           transporter.sendMail({
             from: 'KATALYST',
             to: email.email,
-            subject: `Inner Circle`,
+            subject: `Inner Circle has new member registered`,
             text: emailText(details)
           })
         })
         resolve('succeed')
       }, 1000))
 
+      
       transporter.sendMail({
         from: 'KATALYST',
         to: addInnerCercle.email,

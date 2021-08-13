@@ -48,7 +48,7 @@ const innerCercleController = {
                     nodemailer_1.default.sendMail({
                         from: 'KATALYST',
                         to: email.email,
-                        subject: `Inner Circle`,
+                        subject: `Inner Circle has new member registered`,
                         text: emailText(details)
                     });
                 }));

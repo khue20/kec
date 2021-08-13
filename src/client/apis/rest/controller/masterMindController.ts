@@ -39,7 +39,7 @@ const masterMindController = {
           transporter.sendMail({
             from: 'KATALYST',
             to: email.email,
-            subject: `Mastermind`,
+            subject: `Mastermind has new member registered`,
             text: emailText(detail)
           })
         })
