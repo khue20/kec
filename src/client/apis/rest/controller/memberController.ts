@@ -43,7 +43,7 @@ const memberController = {
         from: 'KATALYST',
         to: addMember.email,
         subject: `ສະບາຍດີທ່ານ, ${addMember.firstName}  ${addMember.lastName}`,
-    
+
         text: `
 ຂອບໃຈທ່ານ ທີ່ສົນໃຈເຂົ້າຮ່ວມໃນ KEC ຂອງພວກເຮົາ. ພາຍຫຼັງທີ່ທ່ານຕື່ມຂໍ້ມູນຂອງທ່ານແລ້ວ ທາງທີມງານເຮົາຈະສົ່ງລາຍລະອຽດຂອງງານໃຫ້ທ່ານຊາບໃນໄວໆນີ້. 
 Thank you for your interest in joining us at KEC. Once you have completed your information, our team will get in touch with you with more details.        
@@ -52,7 +52,7 @@ Thank you for your interest in joining us at KEC. Once you have completed your i
 Katalyst Partners
         `
       })
-      
+
 
       res.status(200).json({ addMember })
     } catch (er) {

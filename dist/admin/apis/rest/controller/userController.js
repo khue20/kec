@@ -123,7 +123,13 @@ const userController = {
     editUser: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { id } = req.params;
         try {
-            const getEdit = yield User_1.default.findById(id);
+            const i = yield User_1.default.findById(id);
+            const getEdit = {
+                _id: i._id,
+                firstName: i.firstName,
+                lastName: i.lastName,
+                email: i.email
+            };
             res.status(200).json({ getEdit });
         }
         catch (er) {
