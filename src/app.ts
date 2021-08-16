@@ -22,7 +22,7 @@ import { Request, Response } from 'express'
 import fs from 'fs'
 import passport from './plugins/passport'
 import Mongo from './plugins/mongoose'
-import { authClearTmp } from '@/service/authcleartmp'
+import { authClearTmp } from '@/service/auth-clear-tmp'
 authClearTmp.start()
 class App {
     static readonly PORT: number | string = process.env.PORT || 5000
