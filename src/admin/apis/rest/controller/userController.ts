@@ -68,7 +68,8 @@ const userController = {
       }
     } catch (er) {
       throw new Error(er)
-    } 
+    }
+    
   },
   isBan: async (req: Request, res: Response) => {
     try {
