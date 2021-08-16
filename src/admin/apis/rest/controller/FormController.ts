@@ -1,14 +1,14 @@
-import {Request, Response} from 'express'
+import { Request, Response } from 'express'
 import Form from '@/models/Form'
 
 const FormController = {
 
     getForms: async (req: Request, res: Response) => {
-        const {formCode} = req.params
+        const { formCode } = req.params
         try {
             const forms = await Form.find({ formCode })
-            res.status(201).json({forms})
-        } catch(e) {
+            res.status(201).json({ forms })
+        } catch (e) {
             res.status(500).send(e)
         }
     },
@@ -17,9 +17,9 @@ const FormController = {
         try {
             const form = await Form.findById({ _id: formId })
 
-            res.status(200).json({form})
-    
-        } catch(e) {
+            res.status(200).json({ form })
+
+        } catch (e) {
             res.status(500).send(e)
         }
     },
@@ -45,11 +45,11 @@ const FormController = {
                 facebookName,
                 email,
                 ownBusiness
-            }, {runValidators: true, new: true})
+            }, { runValidators: true, new: true })
 
-            res.status(200).json({form})
-            
-        } catch(e) {
+            res.status(200).json({ form })
+
+        } catch (e) {
             res.send(e)
         }
     }
