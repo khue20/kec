@@ -100,7 +100,7 @@ const userController = {
   editUser: async (req: Request, res: Response) => {
     const { id } = req.params
     try {
-      const i:any = await User.findById(id)
+      const i: any = await User.findById(id)
       const getEdit = {
         _id: i._id,
         firstName: i.firstName,
