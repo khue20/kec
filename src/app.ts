@@ -71,6 +71,7 @@ class App {
         this.#app.use(this.#jsonParser)
         this.#app.use(this.#urlencodedParser)
         //  this.#app.use(express.static('tmp'))
+        // qhov no yog tias yus siv duab tej nyob hauv server ce yuav tsum tso public rau
         this.#app.use(express.static('public'))
         this.#app.use(express.static('public/main'))
         this.#app.engine('handlebars', this.#expressHandlebars())
