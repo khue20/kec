@@ -46,30 +46,56 @@ const userController = {
   },
   updateUser: async (req: Request, res: Response) => {
     try {
-      const { _id, firstName, lastName, email } = req.body
-      const isCheck = await User.findOne({ _id: _id, email: email })
-      if (isCheck) {
-        const updateUser = await User.findByIdAndUpdate(_id, {
-          $set: {
-            firstName, lastName, email
-          }
-        }, { runValidators: true, new: true })
-        res.status(200).json({ updateUser })
+      const { _id, firstName, lastName, email, password } = req.body
+      if (password) {
+        const genHashPassword = genHash(password)
+        const isCheck = await User.findOne({ _id: _id, email: email })
+        if (isCheck) {
+          const updateUser = await User.findByIdAndUpdate(_id, {
+            $set: {
+              firstName, lastName, email, password: genHashPassword
+            }
+          }, { runValidators: true, new: true })
+          res.status(200).json({ updateUser })
+        }
+        else {
+          const isEmail = await User.findOne({ email })
+          if (isEmail) return res.status(409).json({ message: 'This email already registed!' })
+          const updateUser = await User.findByIdAndUpdate(_id, {
+            $set: {
+              firstName, lastName, email, password: genHashPassword
+            }
+          }, { runValidators: true, new: true })
+          res.status(200).json({ updateUser })
+        }
       }
       else {
-        const isEmail = await User.findOne({ email })
-        if (isEmail) return res.status(409).json({ message: 'This email already registed!' })
-        const updateUser = await User.findByIdAndUpdate(_id, {
-          $set: {
-            firstName, lastName, email
-          }
-        }, { runValidators: true, new: true })
-        res.status(200).json({ updateUser })
+        const isCheck = await User.findOne({ _id: _id, email: email })
+        if (isCheck) {
+          const updateUser = await User.findByIdAndUpdate(_id, {
+            $set: {
+              firstName, lastName, email
+            }
+          }, { runValidators: true, new: true })
+          res.status(200).json({ updateUser })
+        }
+        else {
+          const isEmail = await User.findOne({ email })
+          if (isEmail) return res.status(409).json({ message: 'This email already registed!' })
+          const updateUser = await User.findByIdAndUpdate(_id, {
+            $set: {
+              firstName, lastName, email
+            }
+          }, { runValidators: true, new: true })
+          res.status(200).json({ updateUser })
+        }
       }
+
+
     } catch (er) {
       throw new Error(er)
     }
-    
+
   },
   isBan: async (req: Request, res: Response) => {
     try {

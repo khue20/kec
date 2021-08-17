@@ -63,26 +63,51 @@ const userController = {
     }),
     updateUser: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            const { _id, firstName, lastName, email } = req.body;
-            const isCheck = yield User_1.default.findOne({ _id: _id, email: email });
-            if (isCheck) {
-                const updateUser = yield User_1.default.findByIdAndUpdate(_id, {
-                    $set: {
-                        firstName, lastName, email
-                    }
-                }, { runValidators: true, new: true });
-                res.status(200).json({ updateUser });
+            const { _id, firstName, lastName, email, password } = req.body;
+            if (password) {
+                const genHashPassword = bcrypt_1.genHash(password);
+                const isCheck = yield User_1.default.findOne({ _id: _id, email: email });
+                if (isCheck) {
+                    const updateUser = yield User_1.default.findByIdAndUpdate(_id, {
+                        $set: {
+                            firstName, lastName, email, password: genHashPassword
+                        }
+                    }, { runValidators: true, new: true });
+                    res.status(200).json({ updateUser });
+                }
+                else {
+                    const isEmail = yield User_1.default.findOne({ email });
+                    if (isEmail)
+                        return res.status(409).json({ message: 'This email already registed!' });
+                    const updateUser = yield User_1.default.findByIdAndUpdate(_id, {
+                        $set: {
+                            firstName, lastName, email, password: genHashPassword
+                        }
+                    }, { runValidators: true, new: true });
+                    res.status(200).json({ updateUser });
+                }
             }
             else {
-                const isEmail = yield User_1.default.findOne({ email });
-                if (isEmail)
-                    return res.status(409).json({ message: 'This email already registed!' });
-                const updateUser = yield User_1.default.findByIdAndUpdate(_id, {
-                    $set: {
-                        firstName, lastName, email
-                    }
-                }, { runValidators: true, new: true });
-                res.status(200).json({ updateUser });
+                const isCheck = yield User_1.default.findOne({ _id: _id, email: email });
+                if (isCheck) {
+                    const updateUser = yield User_1.default.findByIdAndUpdate(_id, {
+                        $set: {
+                            firstName, lastName, email
+                        }
+                    }, { runValidators: true, new: true });
+                    res.status(200).json({ updateUser });
+                }
+                else {
+                    const isEmail = yield User_1.default.findOne({ email });
+                    if (isEmail)
+                        return res.status(409).json({ message: 'This email already registed!' });
+                    const updateUser = yield User_1.default.findByIdAndUpdate(_id, {
+                        $set: {
+                            firstName, lastName, email
+                        }
+                    }, { runValidators: true, new: true });
+                    res.status(200).json({ updateUser });
+                }
             }
         }
         catch (er) {
