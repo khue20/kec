@@ -44,7 +44,7 @@ const memberController = {
                     nodemailer_1.default.sendMail({
                         from: 'KATALYST',
                         to: email.email,
-                        subject: `Member`,
+                        subject: `New member`,
                         text: emailText(datas)
                     });
                 }));
@@ -72,10 +72,10 @@ Katalyst Partners
 const emailText = (datas) => `
 ສະໝັກເຂົ້າເປັນສະມາຊິກ KEC ,
 Details:
-FirstName: ${datas.firstName},
+First Name: ${datas.firstName},
 Last Name: ${datas.lastName},
 E-mail: ${datas.email},
-ContactNumber: ${datas.contactNumber},
+Contact Number: ${datas.contactNumber},
 BusinessName: ${datas.businessName},
 Reason to join KEC: ${datas.reason},
 MemberShipOption: ${datas.memberShipOption}

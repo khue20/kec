@@ -51,7 +51,7 @@ const innerCercleController = {
         resolve('succeed')
       }, 1000))
 
-      
+
       transporter.sendMail({
         from: 'KATALYST',
         to: addInnerCercle.email,
@@ -65,7 +65,7 @@ Katalyst Partners
         `
       })
 
-      
+
 
       res.status(200).json({ addInnerCercle })
     } catch (er) {
@@ -74,11 +74,11 @@ Katalyst Partners
   }
 }
 const emailText = (details: any) => `
-Join the Inner Cirlce Waiting List,
+Join The Inner Circle Waiting List,
 Details:
 FirstName: ${details.firstName},
 LastName: ${details.lastName},
-E-mail:${details.email},
+E-mail: ${details.email},
 ContactNumber: ${details.contactNumber},
 BusinessName: ${details.businessName},
 Website: ${details.website},

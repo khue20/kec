@@ -74,11 +74,11 @@ Katalyst Partners
     })
 };
 const emailText = (details) => `
-Join the Inner Cirlce Waiting List,
+Join The Inner Circle Waiting List,
 Details:
 FirstName: ${details.firstName},
 LastName: ${details.lastName},
-E-mail:${details.email},
+E-mail: ${details.email},
 ContactNumber: ${details.contactNumber},
 BusinessName: ${details.businessName},
 Website: ${details.website},

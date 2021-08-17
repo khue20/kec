@@ -69,7 +69,7 @@ New member's information:
 Details: 
 Full Name: ${form.fullName},
 Gender: ${form.gender},
-Mobile number: ${form.mobile},
+Mobile Number: ${form.mobile},
 Facebook Name: ${form.facebookName},
 Email Adress: ${form.email},
 Own Business: ${form.ownBusiness},
