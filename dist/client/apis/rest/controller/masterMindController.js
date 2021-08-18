@@ -55,8 +55,8 @@ const masterMindController = {
                 to: addMasterMind.email,
                 subject: `ສະບາຍດີທ່ານ, ${addMasterMind.firstName}  ${addMasterMind.lastName}`,
                 text: `
-ຂອບໃຈທ່ານ ທີ່ສົນໃຈເຂົ້າຮ່ວມໃນ KEC ຂອງພວກເຮົາ. ພາຍຫຼັງທີ່ທ່ານຕື່ມຂໍ້ມູນຂອງທ່ານແລ້ວ ທາງທີມງານເຮົາຈະສົ່ງລາຍລະອຽດຂອງງານໃຫ້ທ່ານຊາບໃນໄວໆນີ້. 
-Thank you for your interest in joining us at KEC. Once you have completed your information, our team will get in touch with you with more details.        
+ຂອບໃຈທ່ານ ທີ່ສົນໃຈເຂົ້າຮ່ວມບັນຊີລໍຖ້າຂອງ Mastermind ນຳພວກເຮົາ. ພາຍຫຼັງທີ່ທ່ານຕື່ມຂໍ້ມູນຂອງທ່ານແລ້ວ ທາງທີມງານເຮົາຈະສົ່ງລາຍລະອຽດຂອງງານໃຫ້ທ່ານຊາບໃນໄວໆນີ້.
+Thank you for your interest in joining us as waiting list on Mastermind. Once you have completed your information, our team will get in touch with you with more details.
 
 ພວກເຮົາຍິນດີໃຫ້ບໍລິການທ່ານ,
 Katalyst Partners
@@ -70,13 +70,13 @@ Katalyst Partners
     })
 };
 const emailText = (detail) => `
-Mastermind Group is currently FULL,
-Details:
-FirstName: ${detail.firstName},
+New member details:
+
+First Name: ${detail.firstName},
 Last Name: ${detail.lastName},
 E-mail: ${detail.email},
-ContactNumber: ${detail.contactNumber},
-BusinessName: ${detail.businessName},
+Contact Number: ${detail.contactNumber},
+Business Name: ${detail.businessName},
 Website: ${detail.website},
 ReVenue: ${detail.reVenue}
 `;

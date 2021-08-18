@@ -17,7 +17,7 @@ const bannercontroller = {
           transporter.sendMail({
             from: 'KATALYST',
             to: email.email,
-            subject: `Katalyst Business Mastery `,
+            subject: `Business Mastery has new member registered `,
             text: emailText(addBusiness)
           })
         })
@@ -27,10 +27,15 @@ const bannercontroller = {
       transporter.sendMail({
         from: 'KATALYST',
         to: addBusiness.email,
-        subject: `Katalyst Business Mastery`,
-        text: `ຂອບໃຈທ່ານ ທີ່ສົນໃຈເຂົ້າຮ່ວມງານ Business Mastery ຂອງພວກເຮົາ,
-ພວກເຮົາໄດ້ຮັບການສະໝັກເຂົ້າມາ ຂອງທ່ານແລ້ວ
-        `
+        subject: `ສະບາຍດີທ່ານ, ${addBusiness.firstName} ${addBusiness.lastName}`,
+        text: `
+ຂອບໃຈທ່ານ ທີ່ສົນໃຈເຂົ້າຮ່ວມງານ Business Mastery ຂອງພວກເຮົາ ເຊິ່ງເປັນງານທໍາອິດທີ່ຈັດຂຶ້ນໃນ ສປປ ລາວ ແລະ ຈະຈັດຂຶ້ນຢູ່ທີ່ ນະຄອນຫຼວງວຽງຈັນ, ໂຮງແຮມ ຄຣາວ ພລາຊ່າ ວຽງຈັນ, ໃນວັນທີ 2 – 3 ຕຸລາ 2021. ພາຍຫຼັງທີ່ທ່ານຕື່ມຂໍ້ມູນຂອງທ່ານແລ້ວ ທາງທີມງານເຮົາຈະສົ່ງລາຍລະອຽດຂອງງານໃຫ້ທ່ານຊາບໃນໄວໆນີ້.
+Thank you for your interest in joining us at Business Mastery in Vientiane on 2-3 October 2021 and being part of the first event of its kind in Lao PDR. Once you have completed your information, our team will get in touch with you with more details.
+      
+ພວກເຮົາຍິນດີໃຫ້ບໍລິການທ່ານ,
+Katalyst Partners
+
+`
       })
 
       res.status(200).json({ addBusiness })
@@ -40,12 +45,12 @@ const bannercontroller = {
   }
 }
 const emailText = (addBusiness: any) => `
-Join the Katalyst Business Mastery,
-Details:
+New member details:
+
 First Name: ${addBusiness.firstName},
 Last Name: ${addBusiness.lastName},
-Gender,: ${addBusiness.gender},
-E-mail:${addBusiness.email},
+Gender: ${addBusiness.gender},
+E-mail: ${addBusiness.email},
 Contact Number: ${addBusiness.contactNumber},
 Facebook Name: ${addBusiness.facebookName},
 Business Name: ${addBusiness.businessName}

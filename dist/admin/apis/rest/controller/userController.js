@@ -111,7 +111,7 @@ const userController = {
             }
         }
         catch (er) {
-            throw new Error(er);
+            res.status(500).send(er);
         }
     }),
     isBan: (req, res) => __awaiter(void 0, void 0, void 0, function* () {

@@ -93,7 +93,7 @@ const userController = {
 
 
     } catch (er) {
-      throw new Error(er)
+      res.status(500).send(er)
     }
 
   },

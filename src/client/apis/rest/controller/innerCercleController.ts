@@ -57,15 +57,13 @@ const innerCercleController = {
         to: addInnerCercle.email,
         subject: `ສະບາຍດີທ່ານ, ${addInnerCercle.firstName}  ${addInnerCercle.lastName}`,
         text: `
-ຂອບໃຈທ່ານ ທີ່ສົນໃຈເຂົ້າຮ່ວມໃນ KEC ຂອງພວກເຮົາ. ພາຍຫຼັງທີ່ທ່ານຕື່ມຂໍ້ມູນຂອງທ່ານແລ້ວ ທາງທີມງານເຮົາຈະສົ່ງລາຍລະອຽດຂອງງານໃຫ້ທ່ານຊາບໃນໄວໆນີ້. 
-Thank you for your interest in joining us at KEC. Once you have completed your information, our team will get in touch with you with more details.        
+ຂອບໃຈທ່ານ ທີ່ສົນໃຈເຂົ້າຮ່ວມບັນຊີລໍຖ້າຂອງ Inner Circle ນໍາພວກເຮົາ. ພາຍຫຼັງທີ່ທ່ານຕື່ມຂໍ້ມູນຂອງທ່ານແລ້ວ ທາງທີມງານເຮົາຈະສົ່ງລາຍລະອຽດຂອງງານໃຫ້ທ່ານຊາບໃນໄວໆນີ້.
+Thank you for your interest in joining us as waiting list on Inner Circle. Once you have completed your information, our team will get in touch with you with more details.
 
 ພວກເຮົາຍິນດີໃຫ້ບໍລິການທ່ານ,
 Katalyst Partners
         `
       })
-
-
 
       res.status(200).json({ addInnerCercle })
     } catch (er) {
@@ -74,8 +72,8 @@ Katalyst Partners
   }
 }
 const emailText = (details: any) => `
-Join The Inner Circle Waiting List,
-Details:
+New member details:
+
 FirstName: ${details.firstName},
 LastName: ${details.lastName},
 E-mail: ${details.email},

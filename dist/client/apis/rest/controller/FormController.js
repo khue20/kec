@@ -45,12 +45,12 @@ const FormController = {
             nodemailer_1.default.sendMail({
                 from: 'KATALYST',
                 to: form.email,
-                subject: `ສະບາຍດີທ່ານ: ${form.fullName}`,
+                subject: `ສະບາຍດີທ່ານ, ${form.fullName}`,
                 text: `
- ຂອບໃຈທ່ານ ທີ່ສົນໃຈເຂົ້າຮ່ວມໃນ KEC ຂອງພວກເຮົາ. ພາຍຫຼັງທີ່ທ່ານຕື່ມຂໍ້ມູນຂອງທ່ານແລ້ວ ທາງທີມງານເຮົາຈະສົ່ງລາຍລະອຽດຂອງງານໃຫ້ທ່ານຊາບໃນໄວໆນີ້. 
- Thank you for your interest in joining us at KEC. Once you have completed your information, our team will get in touch with you with more details.        
-        
- ພວກເຮົາຍິນດີໃຫ້ບໍລິການທ່ານ,
+ຂອບໃຈທ່ານ ທີ່ສົນໃຈເຂົ້າຮ່ວມງານ ${form.formCode} ຂອງພວກເຮົາ ເຊິ່ງເປັນງານທໍາອິດທີ່ຈັດຂຶ້ນໃນ ສປປ ລາວ ແລະ ຈະຈັດຂຶ້ນຢູ່ທີ່ ນະຄອນຫຼວງວຽງຈັນ, ໂຮງແຮມ ຄຣາວ ພລາຊ່າ ວຽງຈັນ, ໃນວັນທີ 2 – 3 ຕຸລາ 2021. ພາຍຫຼັງທີ່ທ່ານຕື່ມຂໍ້ມູນຂອງທ່ານແລ້ວ ທາງທີມງານເຮົາຈະສົ່ງລາຍລະອຽດຂອງງານໃຫ້ທ່ານຊາບໃນໄວໆນີ້. 
+Thank you for your interest in joining us at ${form.formCode} in Vientiane on 2-3 October 2021 and being part of the first event of its kind in Lao PDR. Once you have completed your information, our team will get in touch with you with more details.
+
+ພວກເຮົາຍິນດີໃຫ້ບໍລິການທ່ານ,
  Katalyst Partners
                 `
             });
@@ -62,9 +62,8 @@ const FormController = {
     })
 };
 const emailText = (form) => `
-New member's information:
+New member details:
 
-Details: 
 Full Name: ${form.fullName},
 Gender: ${form.gender},
 Mobile Number: ${form.mobile},

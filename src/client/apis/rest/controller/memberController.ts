@@ -31,7 +31,7 @@ const memberController = {
           transporter.sendMail({
             from: 'KATALYST',
             to: email.email,
-            subject: `New member`,
+            subject: `New member registered`,
             text: emailText(datas)
           })
         })
@@ -51,8 +51,6 @@ Thank you for your interest in joining us at KEC. Once you have completed your i
 Katalyst Partners
         `
       })
-
-
       res.status(200).json({ addMember })
     } catch (er) {
       return res.status(409).json({ message: er })
@@ -60,15 +58,15 @@ Katalyst Partners
   }
 }
 const emailText = (datas: any) => `
-ສະໝັກເຂົ້າເປັນສະມາຊິກ KEC ,
-Details:
+New member details:
+
 First Name: ${datas.firstName},
 Last Name: ${datas.lastName},
 E-mail: ${datas.email},
 Contact Number: ${datas.contactNumber},
 BusinessName: ${datas.businessName},
 Reason to join KEC: ${datas.reason},
-MemberShipOption: ${datas.memberShipOption}
+MemberShip Option: ${datas.memberShipOption}
 `
 
 export default memberController
