@@ -1,4 +1,4 @@
-import {model, Schema} from 'mongoose'
+import { model, Schema } from 'mongoose'
 
 const formSchema = new Schema({
     formCode: {
@@ -17,10 +17,10 @@ const formSchema = new Schema({
         type: String,
         required: true
     },
-    facebookName: {
-        type: String,
-        required: true
-    },
+    // facebookName: {
+    //     type: String,
+    //     required: true
+    // },
     email: {
         type: String,
         required: true
@@ -29,8 +29,10 @@ const formSchema = new Schema({
         type: Boolean,
         required: true
     },
-    package: String
-}, {timestamps: true})
+    package: [{
+        type: String
+    }]
+}, { timestamps: true })
 
 const Form = model('Form', formSchema, 'Form')
 

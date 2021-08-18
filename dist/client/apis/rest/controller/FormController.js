@@ -17,14 +17,13 @@ const User_1 = __importDefault(require("@/models/User"));
 const nodemailer_1 = __importDefault(require("@/plugins/nodemailer"));
 const FormController = {
     addForm: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { formCode, fullName, gender, mobile, facebookName, email, ownBusiness, packageChosen } = req.body;
+        const { formCode, fullName, gender, mobile, email, ownBusiness, packageChosen } = req.body;
         try {
             const form = new Form_1.default({
                 formCode,
                 fullName,
                 gender,
                 mobile,
-                facebookName,
                 email,
                 ownBusiness,
                 package: packageChosen
@@ -67,7 +66,6 @@ New member details:
 Full Name: ${form.fullName},
 Gender: ${form.gender},
 Mobile Number: ${form.mobile},
-Facebook Name: ${form.facebookName},
 Email Adress: ${form.email},
 Own Business: ${form.ownBusiness},
 Package: ${form.package}

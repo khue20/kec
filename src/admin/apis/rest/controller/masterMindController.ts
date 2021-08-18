@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import Mastermind from '@/models/Mastermind'
 const masterMindController = {
   getMasterMind: async (req: Request, res: Response) => {
-    const { page, perPage, search }: any = req.body
+    const { page, perPage, search }: any = req.query
     const newPage: any = parseInt(page)
     const newPerPage: any = parseInt(perPage)
     try {

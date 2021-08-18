@@ -35,14 +35,16 @@ const FormController = {
         }
     }),
     updateForm: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { formId, formCode, fullName, gender, mobile, facebookName, email, ownBusiness } = req.body;
+        const { formId, formCode, fullName, gender, mobile, 
+        // facebookName,
+        email, ownBusiness } = req.body;
         try {
             const form = yield Form_1.default.findByIdAndUpdate(formId, {
                 formCode,
                 fullName,
                 gender,
                 mobile,
-                facebookName,
+                // facebookName,
                 email,
                 ownBusiness
             }, { runValidators: true, new: true });

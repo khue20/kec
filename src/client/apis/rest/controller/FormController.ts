@@ -10,19 +10,16 @@ const FormController = {
             fullName,
             gender,
             mobile,
-            facebookName,
             email,
             ownBusiness,
             packageChosen
         } = req.body
         try {
-
             const form: any = new Form({
                 formCode,
                 fullName,
                 gender,
                 mobile,
-                facebookName,
                 email,
                 ownBusiness,
                 package: packageChosen
@@ -69,7 +66,6 @@ New member details:
 Full Name: ${form.fullName},
 Gender: ${form.gender},
 Mobile Number: ${form.mobile},
-Facebook Name: ${form.facebookName},
 Email Adress: ${form.email},
 Own Business: ${form.ownBusiness},
 Package: ${form.package}

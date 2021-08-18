@@ -31,7 +31,7 @@ const FormController = {
             fullName,
             gender,
             mobile,
-            facebookName,
+            // facebookName,
             email,
             ownBusiness
         } = req.body
@@ -42,7 +42,7 @@ const FormController = {
                 fullName,
                 gender,
                 mobile,
-                facebookName,
+                // facebookName,
                 email,
                 ownBusiness
             }, { runValidators: true, new: true })

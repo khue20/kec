@@ -18,10 +18,10 @@ const formSchema = new mongoose_1.Schema({
         type: String,
         required: true
     },
-    facebookName: {
-        type: String,
-        required: true
-    },
+    // facebookName: {
+    //     type: String,
+    //     required: true
+    // },
     email: {
         type: String,
         required: true
@@ -30,7 +30,9 @@ const formSchema = new mongoose_1.Schema({
         type: Boolean,
         required: true
     },
-    package: String
+    package: [{
+            type: String
+        }]
 }, { timestamps: true });
 const Form = mongoose_1.model('Form', formSchema, 'Form');
 exports.default = Form;
