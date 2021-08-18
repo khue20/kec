@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Member_1 = __importDefault(require("@/models/Member"));
 const memberController = {
     getMember: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { page, perPage, search } = req.body;
+        const { page, perPage, search } = req.query;
         const newPage = parseInt(page);
         const newPerPage = parseInt(perPage);
         try {

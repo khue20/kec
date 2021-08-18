@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const InnerCircle_1 = __importDefault(require("@/models/InnerCircle"));
 const innerCercleController = {
     getInnerCercle: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { page, perPage, search } = req.body;
+        const { page, perPage, search } = req.query;
         const newPage = parseInt(page);
         const newPerPage = parseInt(perPage);
         try {

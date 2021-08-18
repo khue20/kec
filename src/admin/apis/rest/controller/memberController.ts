@@ -3,7 +3,7 @@ import Member from '@/models/Member'
 
 const memberController = {
   getMember: async (req: Request, res: Response) => {
-    const { page, perPage, search }: any = req.body
+    const { page, perPage, search }: any = req.query
     const newPage: any = parseInt(page)
     const newPerPage: any = parseInt(perPage)
     try {

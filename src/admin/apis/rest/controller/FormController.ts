@@ -4,9 +4,25 @@ import Form from '@/models/Form'
 const FormController = {
 
     getForms: async (req: Request, res: Response) => {
-        const { formCode } = req.params
+        const { page, perPage, search, formCode }: any = req.query
+        const newPage: any = parseInt(page)
+        const newPerPage: any = parseInt(perPage)
         try {
-            const forms = await Form.find({ formCode })
+            const forms = await Form.find({
+                $and: [
+                    search ? {
+                        $or: [
+                            { fullName: { $regex: search.toLowerCase(), $options: 'i' } }
+                        ]
+                    } : {},
+                    {
+                        formCode: formCode,
+                    }
+                ]
+
+            }).skip((newPage * newPerPage) - newPerPage)
+                .limit(newPerPage)
+                .sort('-createdAt')
             res.status(201).json({ forms })
         } catch (e) {
             res.status(500).send(e)

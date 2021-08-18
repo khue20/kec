@@ -15,9 +15,24 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Form_1 = __importDefault(require("@/models/Form"));
 const FormController = {
     getForms: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { formCode } = req.params;
+        const { page, perPage, search, formCode } = req.query;
+        const newPage = parseInt(page);
+        const newPerPage = parseInt(perPage);
         try {
-            const forms = yield Form_1.default.find({ formCode });
+            const forms = yield Form_1.default.find({
+                $and: [
+                    search ? {
+                        $or: [
+                            { fullName: { $regex: search.toLowerCase(), $options: 'i' } }
+                        ]
+                    } : {},
+                    {
+                        formCode: formCode,
+                    }
+                ]
+            }).skip((newPage * newPerPage) - newPerPage)
+                .limit(newPerPage)
+                .sort('-createdAt');
             res.status(201).json({ forms });
         }
         catch (e) {

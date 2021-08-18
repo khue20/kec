@@ -5,11 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const FormController_1 = __importDefault(require("../controller/FormController"));
+const passport_1 = require("passport");
+const isAdmin = passport_1.authenticate('isAdmin', { session: false });
 const router = express_1.Router();
-router.route('/get-forms/:formCode')
-    .get(FormController_1.default.getForms);
+router.route('/get-forms')
+    .get(isAdmin, FormController_1.default.getForms);
 router.route('/get-form/:formId')
-    .get(FormController_1.default.getForm);
+    .get(isAdmin, FormController_1.default.getForm);
 router.route('/update-form')
-    .put(FormController_1.default.updateForm);
+    .put(isAdmin, FormController_1.default.updateForm);
 exports.default = router;
