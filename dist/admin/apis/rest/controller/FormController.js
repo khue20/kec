@@ -68,6 +68,16 @@ const FormController = {
         catch (e) {
             res.send(e);
         }
+    }),
+    deleteForm: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        try {
+            const { formId } = req.params;
+            yield Form_1.default.findByIdAndDelete({ _id: formId });
+            res.status(200).json('Deleted succeed');
+        }
+        catch (er) {
+            res.status(500).send(er);
+        }
     })
 };
 exports.default = FormController;

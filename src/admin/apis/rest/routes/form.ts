@@ -13,4 +13,6 @@ router.route('/get-form/:formId')
 router.route('/update-form')
   .put(isAdmin, FormController.updateForm)
 
+router.route('/delete-form/:formId')
+.delete(isAdmin, FormController.deleteForm)
 export default router

@@ -14,4 +14,6 @@ router.route('/get-form/:formId')
     .get(isAdmin, FormController_1.default.getForm);
 router.route('/update-form')
     .put(isAdmin, FormController_1.default.updateForm);
+router.route('/delete-form/:formId')
+    .delete(isAdmin, FormController_1.default.deleteForm);
 exports.default = router;

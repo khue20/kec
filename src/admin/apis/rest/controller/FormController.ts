@@ -67,6 +67,15 @@ const FormController = {
         } catch (e) {
             res.send(e)
         }
+    },
+    deleteForm: async (req: Request, res: Response) => {
+        try {
+            const { formId }: any = req.params
+            await Form.findByIdAndDelete({ _id: formId })
+            res.status(200).json('Deleted succeed')
+        } catch (er) {
+            res.status(500).send(er)
+        }
     }
 }
 
