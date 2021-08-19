@@ -70,14 +70,24 @@ Katalyst Partners
     })
 };
 const emailText = (detail) => `
-New member details:
+ລາຍລະອຽດຂໍ້ມູນສະມາຊິກຂອງ Mastermind:
 
-First Name: ${detail.firstName},
-Last Name: ${detail.lastName},
-E-mail: ${detail.email},
-Contact Number: ${detail.contactNumber},
-Business Name: ${detail.businessName},
-Website: ${detail.website},
-ReVenue: ${detail.reVenue}
+ຊື່: ${detail.firstName},
+ນາມສະກຸນ: ${detail.lastName},
+ອິເມວ: ${detail.email},
+ເບີໂທລະສັບ: ${detail.contactNumber},
+ຊື່ຂອງທຸລະກິດ: ${detail.businessName},
+ເວັບໄຊຣ: ${detail.website},
+ລາຍຮັບລວມໃນຫນຶ່ງປີຜ່ານມາ: ${detail.reVenue}
 `;
+// const emailText = (detail: any) => `
+// New member details:
+// First Name: ${detail.firstName},
+// Last Name: ${detail.lastName},
+// E-mail: ${detail.email},
+// Contact Number: ${detail.contactNumber},
+// Business Name: ${detail.businessName},
+// Website: ${detail.website},
+// ReVenue: ${detail.reVenue}
+// `
 exports.default = masterMindController;

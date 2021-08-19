@@ -26,11 +26,17 @@ const formSchema = new Schema({
         required: true
     },
     ownBusiness: {
-        type: Boolean,
+        type: String,
         required: true
     },
     package: [{
-        type: String
+        _id: false,
+        ticket: {
+            type: String
+        },
+        qty: {
+            type: Number
+        }
     }]
 }, { timestamps: true })
 

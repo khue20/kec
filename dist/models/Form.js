@@ -27,11 +27,17 @@ const formSchema = new mongoose_1.Schema({
         required: true
     },
     ownBusiness: {
-        type: Boolean,
+        type: String,
         required: true
     },
     package: [{
-            type: String
+            _id: false,
+            ticket: {
+                type: String
+            },
+            qty: {
+                type: Number
+            }
         }]
 }, { timestamps: true });
 const Form = mongoose_1.model('Form', formSchema, 'Form');

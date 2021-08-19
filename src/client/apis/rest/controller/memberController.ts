@@ -58,15 +58,26 @@ Katalyst Partners
   }
 }
 const emailText = (datas: any) => `
-New member details:
+ລາຍລະອຽດຂໍ້ມູນຂອງສະມາຊິກໃໝ່:
 
-First Name: ${datas.firstName},
-Last Name: ${datas.lastName},
-E-mail: ${datas.email},
-Contact Number: ${datas.contactNumber},
-BusinessName: ${datas.businessName},
-Reason to join KEC: ${datas.reason},
-MemberShip Option: ${datas.memberShipOption}
+ຊື່: ${datas.firstName},
+ນາມສະກຸນ: ${datas.lastName},
+ອິເມວ: ${datas.email},
+ເບີໂທລະສັບ: ${datas.contactNumber},
+ຊື່ທຸລະກິດ: ${datas.businessName},
+ເຫດຜົນທີ່ຢາກເຂົ້າຮ່ວມ: ${datas.reason},
+ທາງເລືອກຈ່າຍຄ່າສະມາຊິກ: ${datas.memberShipOption}
 `
+// const emailText = (datas: any) => `
+// New member details:
+
+// First Name: ${datas.firstName},
+// Last Name: ${datas.lastName},
+// E-mail: ${datas.email},
+// Contact Number: ${datas.contactNumber},
+// BusinessName: ${datas.businessName},
+// Reason to join KEC: ${datas.reason},
+// MemberShip Option: ${datas.memberShipOption}
+// `
 
 export default memberController

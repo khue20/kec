@@ -23,11 +23,11 @@ const FormController = {
                 $and: [
                     search ? {
                         $or: [
-                            { fullName: { $regex: search.toLowerCase(), $options: 'i' } }
+                            { fullName: { $regex: search.toLowerCase(), $options: 'i' } },
                         ]
                     } : {},
                     {
-                        formCode: formCode,
+                        formCode: formCode
                     }
                 ]
             }).skip((newPage * newPerPage) - newPerPage)

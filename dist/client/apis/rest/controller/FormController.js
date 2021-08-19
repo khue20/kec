@@ -17,13 +17,16 @@ const User_1 = __importDefault(require("@/models/User"));
 const nodemailer_1 = __importDefault(require("@/plugins/nodemailer"));
 const FormController = {
     addForm: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { formCode, fullName, gender, mobile, email, ownBusiness, packageChosen } = req.body;
+        const { formCode, fullName, gender, mobile, email, 
+        // facebookName
+        ownBusiness, packageChosen } = req.body;
         try {
             const form = new Form_1.default({
                 formCode,
                 fullName,
                 gender,
                 mobile,
+                // facebookName
                 email,
                 ownBusiness,
                 package: packageChosen
@@ -61,13 +64,23 @@ Thank you for your interest in joining us at ${form.formCode} in Vientiane on 2-
     })
 };
 const emailText = (form) => `
-New member details:
+ລາຍລະອຽດຂໍ້ມູນຂອງສະມາຊິກ:
 
-Full Name: ${form.fullName},
-Gender: ${form.gender},
-Mobile Number: ${form.mobile},
-Email Adress: ${form.email},
-Own Business: ${form.ownBusiness},
-Package: ${form.package}
+ຊື່ ແລະ ນາມສະກຸນ: ${form.fullName},
+ເພດ: ${form.gender},
+ເບີໂທລະສັບ: ${form.mobile},
+ອີເມວ: ${form.email},
+ທ່ານມີທຸລະກິດແລ້ວບໍ?: ${form.ownBusiness},
+ທາງເລືອກຈ່າຍຄ່າສະມາຊິກ: ${form.package}
 `;
+// const emailText = (form: any) => `
+// New member details:
+// Full Name: ${form.fullName},
+// Gender: ${form.gender},
+// Facebook Name: ${form.facebookName}
+// Mobile Number: ${form.mobile},
+// Email Adress: ${form.email},
+// Own Business: ${form.ownBusiness},
+// Package: ${form.package}
+// `
 exports.default = FormController;

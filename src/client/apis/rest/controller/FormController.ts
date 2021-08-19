@@ -11,6 +11,7 @@ const FormController = {
             gender,
             mobile,
             email,
+            // facebookName
             ownBusiness,
             packageChosen
         } = req.body
@@ -20,11 +21,11 @@ const FormController = {
                 fullName,
                 gender,
                 mobile,
+                // facebookName
                 email,
                 ownBusiness,
                 package: packageChosen
             })
-
             await form.save()
 
             const mapUser = await User.find()
@@ -61,14 +62,25 @@ Thank you for your interest in joining us at ${form.formCode} in Vientiane on 2-
     }
 }
 const emailText = (form: any) => `
-New member details:
+ລາຍລະອຽດຂໍ້ມູນຂອງສະມາຊິກ:
 
-Full Name: ${form.fullName},
-Gender: ${form.gender},
-Mobile Number: ${form.mobile},
-Email Adress: ${form.email},
-Own Business: ${form.ownBusiness},
-Package: ${form.package}
+ຊື່ ແລະ ນາມສະກຸນ: ${form.fullName},
+ເພດ: ${form.gender},
+ເບີໂທລະສັບ: ${form.mobile},
+ອີເມວ: ${form.email},
+ທ່ານມີທຸລະກິດແລ້ວບໍ?: ${form.ownBusiness},
+ທາງເລືອກຈ່າຍຄ່າສະມາຊິກ: ${form.package}
 `
+// const emailText = (form: any) => `
+// New member details:
+
+// Full Name: ${form.fullName},
+// Gender: ${form.gender},
+// Facebook Name: ${form.facebookName}
+// Mobile Number: ${form.mobile},
+// Email Adress: ${form.email},
+// Own Business: ${form.ownBusiness},
+// Package: ${form.package}
+// `
 
 export default FormController
