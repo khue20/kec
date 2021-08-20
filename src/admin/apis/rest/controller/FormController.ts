@@ -24,6 +24,7 @@ const FormController = {
                 .sort('-createdAt')
             const forms = form.map((i: any) => {
                 return {
+                    _id: i._id,
                     formCode: i.formCode,
                     fullName: i.fullName,
                     gender: i.gender,
