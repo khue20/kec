@@ -50,7 +50,7 @@ const innerCercleController = {
         })
         resolve('succeed')
       }, 1000))
-
+ 
 
       transporter.sendMail({
         from: 'KATALYST',
@@ -80,7 +80,7 @@ const emailText = (details: any) => `
 ເບີຕິດຕໍ່: ${details.contactNumber},
 ຊື່ທຸລະກິດ: ${details.businessName},
 ເວັບໄຊທ: ${details.website},
-TurNover: ${details.turNover},
+ລາຍຮັບປະຈໍາປີ ຫຼື ມູນຄ່າທຸລະກິດ: ${details.turNover},
 ຈຳນວນພະນັກງານ: ${details.noOfStaff},
 ລາຍລະອຽດ: ${details.descriptions}
 `

@@ -82,7 +82,7 @@ const emailText = (details) => `
 ເບີຕິດຕໍ່: ${details.contactNumber},
 ຊື່ທຸລະກິດ: ${details.businessName},
 ເວັບໄຊທ: ${details.website},
-TurNover: ${details.turNover},
+ລາຍຮັບປະຈໍາປີ ຫຼື ມູນຄ່າທຸລະກິດ: ${details.turNover},
 ຈຳນວນພະນັກງານ: ${details.noOfStaff},
 ລາຍລະອຽດ: ${details.descriptions}
 `;
