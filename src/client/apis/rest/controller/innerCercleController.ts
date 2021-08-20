@@ -80,7 +80,7 @@ const emailText = (details: any) => `
 ເບີຕິດຕໍ່: ${details.contactNumber},
 ຊື່ທຸລະກິດ: ${details.businessName},
 ເວັບໄຊທ: ${details.website},
-ລາຍຮັບປະຈໍາປີ ຫຼື ມູນຄ່າທຸລະກິດ: ${details.turNover},
+ລາຍຮັບປະຈໍາປີ: ${details.turNover},
 ຈຳນວນພະນັກງານ: ${details.noOfStaff},
 ລາຍລະອຽດ: ${details.descriptions}
 `
