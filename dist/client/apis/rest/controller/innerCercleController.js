@@ -74,16 +74,28 @@ Katalyst Partners
     })
 };
 const emailText = (details) => `
-New member details:
+ລາຍລະອຽດຂໍ້ມູນສະມາຊິກໃໝ່:
 
-FirstName: ${details.firstName},
-LastName: ${details.lastName},
-E-mail: ${details.email},
-ContactNumber: ${details.contactNumber},
-BusinessName: ${details.businessName},
-Website: ${details.website},
+ຊື່: ${details.firstName},
+ນາມສະກຸນ: ${details.lastName},
+ອິເມວ: ${details.email},
+ເບີຕິດຕໍ່: ${details.contactNumber},
+ຊື່ທຸລະກິດ: ${details.businessName},
+ເວັບໄຊທ: ${details.website},
 TurNover: ${details.turNover},
-No. of Staff: ${details.noOfStaff},
-Descriptions: ${details.descriptions}
+ຈຳນວນພະນັກງານ: ${details.noOfStaff},
+ລາຍລະອຽດ: ${details.descriptions}
 `;
+// const emailText = (details: any) => `
+// New member details:
+// FirstName: ${details.firstName},
+// LastName: ${details.lastName},
+// E-mail: ${details.email},
+// ContactNumber: ${details.contactNumber},
+// BusinessName: ${details.businessName},
+// Website: ${details.website},
+// TurNover: ${details.turNover},
+// No. of Staff: ${details.noOfStaff},
+// Descriptions: ${details.descriptions}
+// `
 exports.default = innerCercleController;

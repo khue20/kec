@@ -8,7 +8,7 @@ const FormController = {
         const newPage: any = parseInt(page)
         const newPerPage: any = parseInt(perPage)
         try {
-            const forms = await Form.find({
+            const form = await Form.find({
                 $and: [
                     search ? {
                         $or: [
@@ -22,6 +22,17 @@ const FormController = {
             }).skip((newPage * newPerPage) - newPerPage)
                 .limit(newPerPage)
                 .sort('-createdAt')
+            const forms = form.map((i: any) => {
+                return {
+                    formCode: i.formCode,
+                    fullName: i.fullName,
+                    gender: i.gender,
+                    mobile: i.mobile,
+                    ownBusiness: i.ownBusiness,
+                    package: i.package.map((p: any) => `Ticket: ${p.ticket} - ${p.qty}`).join(', ')
+                }
+            })
+
             res.status(201).json({ forms })
         } catch (e) {
             res.status(500).send(e)

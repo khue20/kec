@@ -19,7 +19,7 @@ const FormController = {
         const newPage = parseInt(page);
         const newPerPage = parseInt(perPage);
         try {
-            const forms = yield Form_1.default.find({
+            const form = yield Form_1.default.find({
                 $and: [
                     search ? {
                         $or: [
@@ -33,6 +33,16 @@ const FormController = {
             }).skip((newPage * newPerPage) - newPerPage)
                 .limit(newPerPage)
                 .sort('-createdAt');
+            const forms = form.map((i) => {
+                return {
+                    formCode: i.formCode,
+                    fullName: i.fullName,
+                    gender: i.gender,
+                    mobile: i.mobile,
+                    ownBusiness: i.ownBusiness,
+                    package: i.package.map((p) => `Ticket: ${p.ticket} - ${p.qty}`).join(', ')
+                };
+            });
             res.status(201).json({ forms });
         }
         catch (e) {
