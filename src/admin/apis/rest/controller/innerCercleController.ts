@@ -47,7 +47,7 @@ const innerCercleController = {
       website,
       turNover,
       noOfStaff,
-      description } = req.body
+      descriptions } = req.body
     try {
       const get_Update = await InnerCircle.findOneAndUpdate(_id, {
         $set: {
@@ -59,7 +59,7 @@ const innerCercleController = {
           website,
           turNover,
           noOfStaff,
-          description
+          descriptions
         }
       }, { runValidators: true, new: true })
       res.status(200).json({ get_Update })

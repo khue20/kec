@@ -50,7 +50,7 @@ const innerCercleController = {
         })
         resolve('succeed')
       }, 1000))
- 
+
 
       transporter.sendMail({
         from: 'KATALYST',
