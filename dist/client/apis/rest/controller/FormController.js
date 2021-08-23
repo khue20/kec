@@ -33,6 +33,34 @@ const FormController = {
             });
             yield form.save();
             const mapUser = yield User_1.default.find();
+            const plan = {
+            // if (form.formCode === 'GettingAndKeepingCustomers') {
+            //     await new Promise((resolve) => setTimeout(async () => {
+            //         mapUser.map(async (email: any) => {
+            //             transporter.sendMail({
+            //                 from: 'KATALYST',
+            //                 to: email.email,
+            //                 subject: `${form.formCode} has new member registered`,
+            //                 text: emailTextGetting(form)
+            //             })
+            //         })
+            //         resolve('succeed')
+            //     }, 1000))
+            // }
+            // else {
+            //     await new Promise((resolve) => setTimeout(async () => {
+            //         mapUser.map(async (email: any) => {
+            //             transporter.sendMail({
+            //                 from: 'KATALYST',
+            //                 to: email.email,
+            //                 subject: `${form.formCode} has new member registered`,
+            //                 text: emailText(form)
+            //             })
+            //         })
+            //         resolve('succeed')
+            //     }, 1000))
+            // }
+            };
             yield new Promise((resolve) => setTimeout(() => __awaiter(void 0, void 0, void 0, function* () {
                 mapUser.map((email) => __awaiter(void 0, void 0, void 0, function* () {
                     nodemailer_1.default.sendMail({
@@ -73,6 +101,14 @@ const emailText = (form) => `
 ທ່ານມີທຸລະກິດແລ້ວບໍ?: ${form.ownBusiness},
 ທາງເລືອກຈ່າຍຄ່າສະມາຊິກ: ${form.package.map((p) => `Ticket: ${p.ticket} - ${p.qty}`).join(', ')}
 `;
+// const emailTextGetting = (form: any) => `
+// ລາຍລະອຽດຂໍ້ມູນຂອງສະມາຊິກ:
+// ຊື່ ແລະ ນາມສະກຸນ: ${form.fullName},
+// ເພດ: ${form.gender},
+// ເບີໂທລະສັບ: ${form.mobile},
+// ອີເມວ: ${form.email},
+// ທ່ານມີທຸລະກິດແລ້ວບໍ?: ${form.ownBusiness}
+// `
 // const emailText = (form: any) => `
 // New member details:
 // Full Name: ${form.fullName},

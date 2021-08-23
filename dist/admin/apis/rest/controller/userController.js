@@ -31,7 +31,7 @@ const userController = {
             res.status(200).json({ addUsers });
         }
         catch (er) {
-            throw new Error(er);
+            res.send(er);
         }
     }),
     login: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -41,7 +41,7 @@ const userController = {
             res.status(200).json({ accessToken });
         }
         catch (er) {
-            throw new Error(er);
+            res.send(er);
         }
     }),
     getUser: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -58,7 +58,7 @@ const userController = {
             res.status(200).json({ getUsers });
         }
         catch (er) {
-            throw new Error(er);
+            res.send(er);
         }
     }),
     updateUser: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -142,7 +142,7 @@ const userController = {
             res.status(200).json('Deleted succeed');
         }
         catch (er) {
-            throw new Error(er);
+            res.send(er);
         }
     }),
     editUser: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -158,7 +158,7 @@ const userController = {
             res.status(200).json({ getEdit });
         }
         catch (er) {
-            throw new Error(er);
+            res.send(er);
         }
     })
 };

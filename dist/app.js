@@ -43,6 +43,7 @@ const passport_1 = __importDefault(require("./plugins/passport"));
 const mongoose_1 = __importDefault(require("./plugins/mongoose"));
 const auth_clear_tmp_1 = require("@/service/auth-clear-tmp");
 auth_clear_tmp_1.authClearTmp.start();
+// expected output: "The word "fox" is in the sentence"
 class App {
     //  #corsOptions!: any
     constructor() {

@@ -24,6 +24,9 @@ import passport from './plugins/passport'
 import Mongo from './plugins/mongoose'
 import { authClearTmp } from '@/service/auth-clear-tmp'
 authClearTmp.start()
+// expected output: "The word "fox" is in the sentence"
+
+
 class App {
     static readonly PORT: number | string = process.env.PORT || 5000
     #app!: express.Application

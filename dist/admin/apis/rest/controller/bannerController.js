@@ -69,6 +69,6 @@ const bannercontroller = {
         catch (er) {
             return res.status(409).json({ message: er });
         }
-    }),
+    })
 };
 exports.default = bannercontroller;

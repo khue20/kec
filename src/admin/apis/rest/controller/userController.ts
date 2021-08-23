@@ -16,7 +16,7 @@ const userController = {
       await addUsers.save()
       res.status(200).json({ addUsers })
     } catch (er) {
-      throw new Error(er)
+      res.send(er)
     }
   },
   login: async (req: Request, res: Response) => {
@@ -25,7 +25,7 @@ const userController = {
       const accessToken = signToken(auth)
       res.status(200).json({ accessToken })
     } catch (er) {
-      throw new Error(er)
+      res.send(er)
     }
   },
   getUser: async (req: Request, res: Response) => {
@@ -41,7 +41,7 @@ const userController = {
       })
       res.status(200).json({ getUsers })
     } catch (er) {
-      throw new Error(er)
+      res.send(er)
     }
   },
   updateUser: async (req: Request, res: Response) => {
@@ -121,7 +121,7 @@ const userController = {
       await User.findByIdAndDelete(id)
       res.status(200).json('Deleted succeed')
     } catch (er) {
-      throw new Error(er)
+      res.send(er)
     }
   },
   editUser: async (req: Request, res: Response) => {
@@ -136,7 +136,7 @@ const userController = {
       }
       res.status(200).json({ getEdit })
     } catch (er) {
-      throw new Error(er)
+      res.send(er)
     }
   }
 

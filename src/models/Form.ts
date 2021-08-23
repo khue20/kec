@@ -15,6 +15,8 @@ const formSchema = new Schema({
     },
     mobile: {
         type: String,
+        // minlength: 8,
+        // maxlength: 15,
         required: true
     },
     // facebookName: {
