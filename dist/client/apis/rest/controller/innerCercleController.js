@@ -86,6 +86,19 @@ const emailText = (details) => `
 ຈຳນວນພະນັກງານ: ${details.noOfStaff},
 ລາຍລະອຽດ: ${details.descriptions}
 `;
+const emailTextGetting = (details) => `
+ລາຍລະອຽດຂໍ້ມູນສະມາຊິກໃໝ່:
+
+ຊື່: ${details.firstName},
+ນາມສະກຸນ: ${details.lastName},
+ອິເມວ: ${details.email},
+ເບີຕິດຕໍ່: ${details.contactNumber},
+ຊື່ທຸລະກິດ: ${details.businessName},
+ເວັບໄຊທ: ${details.website},
+ລາຍຮັບປະຈໍາປີ: ${details.turNover},
+ຈຳນວນພະນັກງານ: ${details.noOfStaff},
+ລາຍລະອຽດ: ${details.descriptions}
+`;
 // const emailText = (details: any) => `
 // New member details:
 // FirstName: ${details.firstName},

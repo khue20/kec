@@ -40,6 +40,7 @@ const FormController = {
                     fullName: i.fullName,
                     gender: i.gender,
                     mobile: i.mobile,
+                    email: i.email,
                     ownBusiness: i.ownBusiness,
                     package: i.package.map((p) => `Ticket: ${p.ticket} - ${p.qty}`).join(', ')
                 };
