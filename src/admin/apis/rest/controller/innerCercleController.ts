@@ -31,7 +31,17 @@ const innerCercleController = {
           noOfStaff: i.noOfStaff
         }
       })
-      res.status(200).json({ getInner })
+      const counts = await InnerCircle.find({
+        $and: [
+          search ? {
+            $or: [
+              { firstName: { $regex: search.toLowerCase(), $options: 'i' } },
+              { businessName: { $regex: search, $options: 'i' } },
+            ]
+          } : {},
+        ]
+      }).countDocuments()
+      res.status(200).json({ getInner, totals: counts })
     } catch (er) {
       return res.status(409).json({ message: er })
     }

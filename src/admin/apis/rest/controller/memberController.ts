@@ -30,7 +30,18 @@ const memberController = {
           memberShipOption: i.memberShipOption
         }
       })
-      res.status(200).json({ getMember })
+      const count = await Member.find({
+        $and: [
+          search ? {
+            $or: [
+              { firstName: { $regex: search.toLowerCase(), $options: 'i' } },
+              { businessName: { $regex: search, $options: 'i' } },
+            ]
+          } : {},
+        ]
+      }).countDocuments()
+
+      res.status(200).json({ getMember, totals: count })
 
     } catch (er) {
       return res.status(409).json({ message: er })

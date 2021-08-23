@@ -34,8 +34,19 @@ const FormController = {
                     package: i.package.map((p: any) => `Ticket: ${p.ticket} - ${p.qty}`).join(', ')
                 }
             })
-
-            res.status(201).json({ forms })
+            const counts = await Form.find({
+                $and: [
+                    search ? {
+                        $or: [
+                            { fullName: { $regex: search.toLowerCase(), $options: 'i' } },
+                        ]
+                    } : {},
+                    {
+                        formCode: formCode
+                    }
+                ]
+            }).countDocuments()
+            res.status(201).json({ forms, totals: counts })
         } catch (e) {
             res.status(500).send(e)
         }

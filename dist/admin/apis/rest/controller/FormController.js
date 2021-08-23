@@ -45,7 +45,19 @@ const FormController = {
                     package: i.package.map((p) => `Ticket: ${p.ticket} - ${p.qty}`).join(', ')
                 };
             });
-            res.status(201).json({ forms });
+            const counts = yield Form_1.default.find({
+                $and: [
+                    search ? {
+                        $or: [
+                            { fullName: { $regex: search.toLowerCase(), $options: 'i' } },
+                        ]
+                    } : {},
+                    {
+                        formCode: formCode
+                    }
+                ]
+            }).countDocuments();
+            res.status(201).json({ forms, totals: counts });
         }
         catch (e) {
             res.status(500).send(e);

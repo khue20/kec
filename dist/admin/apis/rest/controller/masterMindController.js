@@ -42,7 +42,17 @@ const masterMindController = {
                     website: i.website
                 };
             });
-            res.status(200).json({ getMaster });
+            const count = yield Mastermind_1.default.find({
+                $and: [
+                    search ? {
+                        $or: [
+                            { firstName: { $regex: search.toLowerCase(), $options: 'i' } },
+                            { businessName: { $regex: search, $options: 'i' } },
+                        ]
+                    } : {},
+                ]
+            }).countDocuments();
+            res.status(200).json({ getMaster, totals: count });
         }
         catch (er) {
             throw new Error(er);
