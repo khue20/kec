@@ -2,10 +2,11 @@ import { Router, Request, Response } from 'express'
 import { authenticate } from 'passport'
 const isAdmin = authenticate('isAdmin', { session: false })
 import eventController from '../controller/eventControler'
+import { eventValidation } from '@/admin/Validator/eventValidator'
 const router: Router = Router()
 
 router.route('/add-event')
-  .post(isAdmin, eventController.addEvent)
+  .post(isAdmin, eventValidation, eventController.addEvent)
 
 router.route('/get-event')
   .get(isAdmin, eventController.getEvent)
@@ -15,7 +16,7 @@ router.route('/update-event')
 
 router.route('/delete-event/:id')
   .delete(isAdmin, eventController.deleteEvent)
-  router.route('/edit-event/:id')
+router.route('/edit-event/:id')
   .get(isAdmin, eventController.editEvent)
-   
+
 export default router

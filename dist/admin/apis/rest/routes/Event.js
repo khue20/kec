@@ -7,9 +7,10 @@ const express_1 = require("express");
 const passport_1 = require("passport");
 const isAdmin = passport_1.authenticate('isAdmin', { session: false });
 const eventControler_1 = __importDefault(require("../controller/eventControler"));
+const eventValidator_1 = require("@/admin/Validator/eventValidator");
 const router = express_1.Router();
 router.route('/add-event')
-    .post(isAdmin, eventControler_1.default.addEvent);
+    .post(isAdmin, eventValidator_1.eventValidation, eventControler_1.default.addEvent);
 router.route('/get-event')
     .get(isAdmin, eventControler_1.default.getEvent);
 router.route('/update-event')

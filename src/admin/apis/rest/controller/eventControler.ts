@@ -1,6 +1,5 @@
 import { Request, Response } from 'express'
 import Event from '@/models/Event'
-
 const eventController = {
   addEvent: async (req: Request, res: Response) => {
     const { name, date, bookTicketButton, details } = req.body

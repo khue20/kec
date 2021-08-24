@@ -8,6 +8,6 @@ const joi_1 = __importDefault(require("@hapi/joi"));
 exports.eventValidator = joi_1.default.object({
     name: joi_1.default.string().required(),
     date: joi_1.default.date().required(),
-    bookTiketButton: joi_1.default.string().required(),
+    bookTicketButton: joi_1.default.string().required(),
     details: joi_1.default.string().required()
 });

@@ -74,7 +74,7 @@ const innerCercleController = {
       }, { runValidators: true, new: true })
       res.status(200).json({ get_Update })
     } catch (er) {
-      throw new Error(er)
+      res.status(500).send(er)
     }
   },
   delete: async (req: Request, res: Response) => {

@@ -78,7 +78,7 @@ const innerCercleController = {
             res.status(200).json({ get_Update });
         }
         catch (er) {
-            throw new Error(er);
+            res.status(500).send(er);
         }
     }),
     delete: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
