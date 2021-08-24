@@ -59,7 +59,7 @@ const innerCercleController = {
       noOfStaff,
       descriptions } = req.body
     try {
-      const get_Update = await InnerCircle.findOneAndUpdate(_id, {
+      const get_Update = await InnerCircle.findByIdAndUpdate(_id, {
         $set: {
           firstName,
           lastName,

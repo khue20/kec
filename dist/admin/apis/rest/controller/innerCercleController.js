@@ -62,7 +62,7 @@ const innerCercleController = {
     updateInner: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { _id, firstName, lastName, email, contactNumber, businessName, website, turNover, noOfStaff, descriptions } = req.body;
         try {
-            const get_Update = yield InnerCircle_1.default.findOneAndUpdate(_id, {
+            const get_Update = yield InnerCircle_1.default.findByIdAndUpdate(_id, {
                 $set: {
                     firstName,
                     lastName,
