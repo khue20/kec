@@ -16,7 +16,7 @@ const userController = {
       await addUsers.save()
       res.status(200).json({ addUsers })
     } catch (er) {
-      res.send(er)
+      res.status(500).send(er)
     }
   },
   login: async (req: Request, res: Response) => {

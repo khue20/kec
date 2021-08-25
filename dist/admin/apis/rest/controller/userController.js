@@ -31,7 +31,7 @@ const userController = {
             res.status(200).json({ addUsers });
         }
         catch (er) {
-            res.send(er);
+            res.status(500).send(er);
         }
     }),
     login: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
