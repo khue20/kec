@@ -66,7 +66,6 @@ passport_1.default.use('adminSignIn', new passport_local_1.Strategy({
 }, (email, password, done) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user = yield User_1.default.findOne({ email });
-        // console.log(user)
         if (user && user.role !== 'Admin') {
             return done(null, false, { message: 'You are user can not login to admin!' });
         }

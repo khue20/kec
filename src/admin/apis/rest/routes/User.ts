@@ -3,11 +3,11 @@ import { authenticate } from 'passport'
 const isAdmin = authenticate('isAdmin', { session: false })
 import userController from '../controller/userController'
 import { adminSignIn } from '../../../../middlewares/auth'
-import { userValidator } from '@/admin/Validator/UserValidator'
+import { userValidator, logins } from '@/admin/Validator/UserValidator'
 const router: Router = Router()
 
 router.route('/admin-login')
-  .post(adminSignIn, userController.login)
+  .post(logins, adminSignIn, userController.login)
 
 router.route('/add-user')
   .post(isAdmin, userValidator, userController.addUser)

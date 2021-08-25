@@ -9,11 +9,20 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.userValidator = void 0;
+exports.logins = exports.userValidator = void 0;
 const UserValidation_1 = require("@/admin/Validations/UserValidation");
 exports.userValidator = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield UserValidation_1.userValidation.validateAsync(req.body);
+    }
+    catch (er) {
+        return res.status(400).json({ error: er.details[0].message });
+    }
+    next();
+});
+exports.logins = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        yield UserValidation_1.login.validateAsync(req.body);
     }
     catch (er) {
         return res.status(400).json({ error: er.details[0].message });

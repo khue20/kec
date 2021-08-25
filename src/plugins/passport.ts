@@ -53,8 +53,9 @@ passport.use('adminSignIn', new LocalStrategy({
   passwordField: 'password',
 }, async (email, password, done) => {
   try {
+
     const user: any = await Users.findOne({ email })
-    // console.log(user)
+
     if (user && user.role !== 'Admin') {
       return done(null, false, { message: 'You are user can not login to admin!' })
     }

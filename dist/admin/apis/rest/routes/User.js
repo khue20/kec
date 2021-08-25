@@ -11,7 +11,7 @@ const auth_1 = require("../../../../middlewares/auth");
 const UserValidator_1 = require("@/admin/Validator/UserValidator");
 const router = express_1.Router();
 router.route('/admin-login')
-    .post(auth_1.adminSignIn, userController_1.default.login);
+    .post(UserValidator_1.logins, auth_1.adminSignIn, userController_1.default.login);
 router.route('/add-user')
     .post(isAdmin, UserValidator_1.userValidator, userController_1.default.addUser);
 router.route('/get-user')
