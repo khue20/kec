@@ -31,7 +31,7 @@ const FormController = {
                     mobile: i.mobile,
                     email: i.email,
                     ownBusiness: i.ownBusiness,
-                    package: i.package.map((p: any) => `Ticket: ${p.ticket} - ${p.price} ກີບ: ${p.qty}`).join(', ')
+                    package: i.package.map((p: any) => `${p.ticket} - ${p.price} ກີບ: ${p.qty}`).join(', ')
                 }
             })
             const counts = await Form.find({
