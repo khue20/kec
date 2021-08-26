@@ -36,6 +36,9 @@ const formSchema = new Schema({
         ticket: {
             type: String
         },
+        price: {
+            type: Number
+        },
         qty: {
             type: Number
         }

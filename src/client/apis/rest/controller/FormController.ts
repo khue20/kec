@@ -27,7 +27,7 @@ const FormController = {
                 package: packageChosen
             })
             await form.save()
-            
+
             const mapUser = await User.find()
             const plan = {
                 // if (form.formCode === 'GettingAndKeepingCustomers') {
@@ -98,7 +98,7 @@ const emailText = (form: any) => `
 ເບີໂທລະສັບ: ${form.mobile},
 ອີເມວ: ${form.email},
 ທ່ານມີທຸລະກິດແລ້ວບໍ?: ${form.ownBusiness},
-ທາງເລືອກຈ່າຍຄ່າສະມາຊິກ: ${form.package.map((p: any) => `Ticket: ${p.ticket} - ${p.qty}`).join(', ')}
+ທາງເລືອກຈ່າຍຄ່າສະມາຊິກ: ${form.package.map((p: any) => `Ticket: ${p.ticket} - ${p.price} ກີບ: ${p.qty}`).join(', ')}
 `
 // const emailTextGetting = (form: any) => `
 // ລາຍລະອຽດຂໍ້ມູນຂອງສະມາຊິກ:

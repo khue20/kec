@@ -99,7 +99,7 @@ const emailText = (form) => `
 ເບີໂທລະສັບ: ${form.mobile},
 ອີເມວ: ${form.email},
 ທ່ານມີທຸລະກິດແລ້ວບໍ?: ${form.ownBusiness},
-ທາງເລືອກຈ່າຍຄ່າສະມາຊິກ: ${form.package.map((p) => `Ticket: ${p.ticket} - ${p.qty}`).join(', ')}
+ທາງເລືອກຈ່າຍຄ່າສະມາຊິກ: ${form.package.map((p) => `Ticket: ${p.ticket} - ${p.price} ກີບ: ${p.qty}`).join(', ')}
 `;
 // const emailTextGetting = (form: any) => `
 // ລາຍລະອຽດຂໍ້ມູນຂອງສະມາຊິກ:

@@ -42,7 +42,7 @@ const FormController = {
                     mobile: i.mobile,
                     email: i.email,
                     ownBusiness: i.ownBusiness,
-                    package: i.package.map((p) => `Ticket: ${p.ticket} - ${p.qty}`).join(', ')
+                    package: i.package.map((p) => `Ticket: ${p.ticket} - ${p.price} ກີບ: ${p.qty}`).join(', ')
                 };
             });
             const counts = yield Form_1.default.find({

@@ -37,6 +37,9 @@ const formSchema = new mongoose_1.Schema({
             ticket: {
                 type: String
             },
+            price: {
+                type: Number
+            },
             qty: {
                 type: Number
             }
