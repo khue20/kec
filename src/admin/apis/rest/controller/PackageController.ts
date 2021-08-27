@@ -22,7 +22,7 @@ const packageController = {
       const mapper = getPackage.map((i: any) => {
         return {
           _id: i._id,
-          Ticket: i.ticket,
+          ticket: i.ticket,
           price: i.price,
           qty: i.qty.join(', ')
         }
