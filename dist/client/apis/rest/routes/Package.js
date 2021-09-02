@@ -8,4 +8,6 @@ const PackageController_1 = __importDefault(require("../controller/PackageContro
 const router = express_1.Router();
 router.route('/get-package')
     .get(PackageController_1.default.getPackage);
+router.route('/get-special-price')
+    .get(PackageController_1.default.getSpecialPrice);
 exports.default = router;

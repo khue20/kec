@@ -11,6 +11,10 @@ const packageSchema = new mongoose_1.Schema({
         type: Number,
         required: true
     },
+    specialPrice: {
+        type: Number,
+        required: true
+    },
     qty: [{
             type: Number
         }]

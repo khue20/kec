@@ -10,6 +10,10 @@ const packageSchema = new Schema({
     type: Number,
     required: true
   },
+  specialPrice: {
+    type: Number,
+    required: true
+  },
   qty: [{
     type: Number
   }]

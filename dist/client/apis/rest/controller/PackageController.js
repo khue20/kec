@@ -22,6 +22,23 @@ const packageController = {
         catch (e) {
             res.status(509).send(e);
         }
+    }),
+    getSpecialPrice: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        try {
+            const getPackage = yield Package_1.default.find();
+            const getSpecialPrice = getPackage.map((i) => {
+                return {
+                    _id: i._id,
+                    ticket: i.ticket,
+                    price: i.price,
+                    specialPrice: i.specialPrice
+                };
+            });
+            res.status(200).json({ getSpecialPrice });
+        }
+        catch (e) {
+            res.status(509).send(e);
+        }
     })
 };
 exports.default = packageController;

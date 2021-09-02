@@ -8,6 +8,22 @@ const packageController = {
     } catch (e) {
       res.status(509).send(e)
     }
+  },
+  getSpecialPrice: async (req: Request, res: Response) => {
+    try {
+      const getPackage = await Package.find()
+      const getSpecialPrice = getPackage.map((i: any) => {
+        return {
+          _id: i._id,
+          ticket: i.ticket,
+          price: i.price,
+          specialPrice: i.specialPrice
+        }
+      })
+      res.status(200).json({ getSpecialPrice })
+    } catch (e) {
+      res.status(509).send(e)
+    }
   }
 
 }
