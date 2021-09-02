@@ -10,9 +10,8 @@ const packageSchema = new Schema({
     type: Number,
     required: true
   },
-  specialPrice: {
-    type: Number,
-    required: true
+  originalPrice: {
+    type: Number
   },
   qty: [{
     type: Number

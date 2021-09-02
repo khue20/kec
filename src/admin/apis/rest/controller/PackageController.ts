@@ -3,12 +3,12 @@ import Package from '@/models/Package'
 
 const packageController = {
   addPackage: async (req: Request, res: Response) => {
-    const { ticket, price, specialPrice, qty } = req.body
+    const { ticket, price, originalPrice, qty } = req.body
     try {
       const isCheck = await Package.findOne({ ticket })
       if (isCheck) return res.status(409).json({ message: 'Duplicate ticket' })
       const addPackage = new Package({
-        ticket, price, specialPrice, qty
+        ticket, price, originalPrice, qty
       })
       await addPackage.save()
       res.status(200).json({ addPackage })
@@ -24,7 +24,7 @@ const packageController = {
           _id: i._id,
           ticket: i.ticket,
           price: i.price,
-          specialPrice:i.specialPrice,
+          originalPrice: i.originalPrice,
           qty: i.qty.join(', ')
         }
       })
@@ -34,11 +34,11 @@ const packageController = {
     }
   },
   updatePackage: async (req: Request, res: Response) => {
-    const { _id, ticket, price,specialPrice, qty } = req.body
+    const { _id, ticket, price, originalPrice, qty } = req.body
     try {
       const updatePackage = await Package.findByIdAndUpdate(_id, {
         $set: {
-          ticket, price,specialPrice, qty
+          ticket, price, originalPrice, qty
         }
       }, { runValidators: true, new: true })
       res.status(200).json({ updatePackage })

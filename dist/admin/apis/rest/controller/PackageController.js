@@ -15,13 +15,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Package_1 = __importDefault(require("@/models/Package"));
 const packageController = {
     addPackage: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { ticket, price, specialPrice, qty } = req.body;
+        const { ticket, price, originalPrice, qty } = req.body;
         try {
             const isCheck = yield Package_1.default.findOne({ ticket });
             if (isCheck)
                 return res.status(409).json({ message: 'Duplicate ticket' });
             const addPackage = new Package_1.default({
-                ticket, price, specialPrice, qty
+                ticket, price, originalPrice, qty
             });
             yield addPackage.save();
             res.status(200).json({ addPackage });
@@ -38,7 +38,7 @@ const packageController = {
                     _id: i._id,
                     ticket: i.ticket,
                     price: i.price,
-                    specialPrice: i.specialPrice,
+                    originalPrice: i.originalPrice,
                     qty: i.qty.join(', ')
                 };
             });
@@ -49,11 +49,11 @@ const packageController = {
         }
     }),
     updatePackage: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const { _id, ticket, price, specialPrice, qty } = req.body;
+        const { _id, ticket, price, originalPrice, qty } = req.body;
         try {
             const updatePackage = yield Package_1.default.findByIdAndUpdate(_id, {
                 $set: {
-                    ticket, price, specialPrice, qty
+                    ticket, price, originalPrice, qty
                 }
             }, { runValidators: true, new: true });
             res.status(200).json({ updatePackage });
