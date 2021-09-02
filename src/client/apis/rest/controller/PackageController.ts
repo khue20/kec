@@ -17,7 +17,7 @@ const packageController = {
           _id: i._id,
           ticket: i.ticket,
           price: i.price,
-          originPrice: i.originPrice
+          originalPrice: i.originalPrice
         }
       })
       res.status(200).json({ getSpecialPrice })
