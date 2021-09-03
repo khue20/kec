@@ -12,6 +12,10 @@ const speakerSchema = new Schema({
   companyName: {
     type: String,
     required: true
+  },
+  sortOrder: {
+    type: Number,
+    default: 0
   }
 }, { timestamps: true })
 

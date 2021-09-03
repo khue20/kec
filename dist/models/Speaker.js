@@ -13,6 +13,10 @@ const speakerSchema = new mongoose_1.Schema({
     companyName: {
         type: String,
         required: true
+    },
+    sortOrder: {
+        type: Number,
+        default: 0
     }
 }, { timestamps: true });
 const Speaker = mongoose_1.model('Speaker', speakerSchema, 'Speaker');

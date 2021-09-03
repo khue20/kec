@@ -11,14 +11,31 @@ const speakerController = {
           _id: i._id,
           profile: Path + i.profile,
           speakerName: i.speakerName,
-          companyName: i.companyName
+          companyName: i.companyName,
+          sortOrder: i.sortOrder
         }
       })
       res.status(200).json({ mapSpeaker })
     } catch (e) {
       res.status(500).send(e)
     }
+  },
+  sortOrders: async (req: Request, res: Response) => {
+    try {
+      const { items } = req.body
+      await Promise.all(
+        items.map(async (i: any, index: number) => {
+          await Speaker.findByIdAndUpdate(i, {
+            $set: {
+              sortOrder: index
+            }
+          }, { runValidators: true, new: true })
+        })
+      )
+      res.status(201).json('Completed')
+    } catch (e) {
+      res.status(500).send(e)
+    }
   }
-
 }
 export default speakerController

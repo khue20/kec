@@ -6,11 +6,21 @@ const speakerController = {
   addSpeaker: async (req: Request, res: Response) => {
     const { profile, speakerName, companyName } = req.body
     try {
-      const addSpeaker = new Speaker({
-        profile, speakerName, companyName
-      })
-      await addSpeaker.save()
-      res.status(200).json({ addSpeaker })
+      const getsort:any = await Speaker.findOne().sort('-sortOrder')
+      if (!getsort) {
+        const addSpeaker = new Speaker({
+          profile, speakerName, companyName
+        })
+        await addSpeaker.save()
+        res.status(200).json({ addSpeaker })
+      } else {
+
+        const addSpeaker = new Speaker({
+          profile, speakerName, companyName, sortOrder: getsort.sortOrder + 1
+        })
+        await addSpeaker.save()
+        res.status(200).json({ addSpeaker })
+      }
     } catch (er) {
       return res.status(509).json({ message: er })
     }

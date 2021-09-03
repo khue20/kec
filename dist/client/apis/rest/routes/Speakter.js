@@ -8,4 +8,6 @@ const SpeakerController_1 = __importDefault(require("../controller/SpeakerContro
 const router = express_1.Router();
 router.route('/get-speaker')
     .get(SpeakerController_1.default.getSpeaker);
+router.route('/sortorder')
+    .put(SpeakerController_1.default.sortOrders);
 exports.default = router;

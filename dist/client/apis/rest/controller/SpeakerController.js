@@ -23,10 +23,27 @@ const speakerController = {
                     _id: i._id,
                     profile: Path + i.profile,
                     speakerName: i.speakerName,
-                    companyName: i.companyName
+                    companyName: i.companyName,
+                    sortOrder: i.sortOrder
                 };
             });
             res.status(200).json({ mapSpeaker });
+        }
+        catch (e) {
+            res.status(500).send(e);
+        }
+    }),
+    sortOrders: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        try {
+            const { items } = req.body;
+            yield Promise.all(items.map((i, index) => __awaiter(void 0, void 0, void 0, function* () {
+                yield Speaker_1.default.findByIdAndUpdate(i, {
+                    $set: {
+                        sortOrder: index
+                    }
+                }, { runValidators: true, new: true });
+            })));
+            res.status(201).json('Completed');
         }
         catch (e) {
             res.status(500).send(e);

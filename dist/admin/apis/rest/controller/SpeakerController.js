@@ -17,11 +17,21 @@ const speakerController = {
     addSpeaker: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { profile, speakerName, companyName } = req.body;
         try {
-            const addSpeaker = new Speaker_1.default({
-                profile, speakerName, companyName
-            });
-            yield addSpeaker.save();
-            res.status(200).json({ addSpeaker });
+            const getsort = yield Speaker_1.default.findOne().sort('-sortOrder');
+            if (!getsort) {
+                const addSpeaker = new Speaker_1.default({
+                    profile, speakerName, companyName
+                });
+                yield addSpeaker.save();
+                res.status(200).json({ addSpeaker });
+            }
+            else {
+                const addSpeaker = new Speaker_1.default({
+                    profile, speakerName, companyName, sortOrder: getsort.sortOrder + 1
+                });
+                yield addSpeaker.save();
+                res.status(200).json({ addSpeaker });
+            }
         }
         catch (er) {
             return res.status(509).json({ message: er });
