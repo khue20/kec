@@ -3,8 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
 const speakerSchema = new mongoose_1.Schema({
     profile: {
-        type: String,
-        required: true
+        type: String
     },
     speakerName: {
         type: String,

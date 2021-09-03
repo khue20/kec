@@ -2,8 +2,7 @@ import { Schema, model } from 'mongoose'
 
 const speakerSchema = new Schema({
   profile: {
-    type: String,
-    required: true
+    type: String
   },
   speakerName: {
     type: String,
