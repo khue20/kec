@@ -5,7 +5,7 @@ const speakerController = {
 
   getSpeaker: async (req: Request, res: Response) => {
     try {
-      const getSpeaker = await Speaker.find()
+      const getSpeaker = await Speaker.find().sort({ 'sortOrder': 1, 'createdAt': 1 })
       const mapSpeaker = getSpeaker.map((i: any) => {
         return {
           _id: i._id,

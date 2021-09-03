@@ -17,7 +17,7 @@ const Path = process.env.SERVER_NAME || 'https://server.kec-lao.com/';
 const speakerController = {
     getSpeaker: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            const getSpeaker = yield Speaker_1.default.find();
+            const getSpeaker = yield Speaker_1.default.find().sort({ 'sortOrder': 1, 'createdAt': 1 });
             const mapSpeaker = getSpeaker.map((i) => {
                 return {
                     _id: i._id,
